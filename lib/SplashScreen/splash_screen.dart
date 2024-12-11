@@ -12,11 +12,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState() {
-    // TODO: implement initState
-    sleep(Duration(minutes: 1));
-    const IntroScreen();
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
