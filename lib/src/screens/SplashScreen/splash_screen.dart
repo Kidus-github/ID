@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:id/IntroScreen/intro_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +15,6 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: Column(
           children: [
             Expanded(
@@ -26,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Container(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(11)),
-                child: Image.asset('assets/img/logo.png'),
+                child: Image.asset('assets/logo/logo.png'),
               ),
             )),
             Container(
