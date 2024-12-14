@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/screens/OnBoardingScreen/on_boarding_screen.dart';
 import 'package:id/src/screens/SplashScreen/splash_screen.dart';
+import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
 import 'package:id/src/utils/theme/theme.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       // home: SplashScreen(),
-      home: OnBoardingScreen(),
+      // home: OnBoardingScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

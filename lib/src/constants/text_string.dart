@@ -14,3 +14,8 @@ const String kOnBoarding3Text1 = "Visual Report at your Fingertips";
 const String kOnBoarding3Text2 =
     "Track progress with detailed graphs and insights Export attendance report effortlessly";
 const String kOnBoarding3Text3 = "3/3";
+
+//--Welcome Screen Text
+const String kWelcomeText1 = "Who Are You";
+const String kWelcomeText2 = "Teacher";
+const String kWelcomeText3 = "Student";
