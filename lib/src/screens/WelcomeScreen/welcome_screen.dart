@@ -6,10 +6,36 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Column(
-          children: [Text(kWelcomeText)],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: Column(
+            children: [
+              Text(kWelcomeText1),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child:const  Column(
+                      children: [
+                        Image(image: AssetImage(kWelcomeText1)),
+                        Text(kWelcomeText2)
+                      ],
+                    ),
+                  
+                  GestureDetector ( 
+                    onTap: (){}
+                    child: Column(
+                    children: [
+                      Image(image: AssetImage(kWelcomeText2)),
+                      Text(kWelcomeText3)
+                    ],
+                  )),),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
