@@ -9,6 +9,9 @@ class AppTheme {
       headlineLarge: GoogleFonts.montserrat(
         color: Colors.black87,
       ),
+      headlineMedium: const TextStyle(
+          color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+      headlineSmall: const TextStyle(color: Colors.black, fontSize: 8),
     ),
   );
   static ThemeData darkTheme = ThemeData(brightness: Brightness.dark);

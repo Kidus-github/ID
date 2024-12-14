@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:id/src/screens/OnBoardingScreen/on_boarding_screen.dart';
 import 'package:id/src/screens/SplashScreen/splash_screen.dart';
 import 'package:id/src/utils/theme/theme.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: OnBoardingScreen(),
     );
   }
 }
