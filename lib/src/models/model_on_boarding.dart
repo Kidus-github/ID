@@ -4,12 +4,12 @@ class OnBoardingModel {
   final String title;
   final String subtitle;
   final String counterText;
-  final double size;
+  final double width;
   OnBoardingModel(
       {required this.image,
       required this.title,
       required this.counterText,
       required this.subtitle,
-      required this.size,
+      required this.width,
       this.image2});
 }
