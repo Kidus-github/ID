@@ -16,6 +16,7 @@ const String kOnBoarding3Text2 =
 const String kOnBoarding3Text3 = "3/3";
 
 //--Welcome Screen Text
-const String kWelcomeText1 = "Who Are You";
+const String kWelcomeText1 = "Who Are You ?";
 const String kWelcomeText2 = "Teacher";
 const String kWelcomeText3 = "Student";
+const String kWelcomeText4 = "Next";
