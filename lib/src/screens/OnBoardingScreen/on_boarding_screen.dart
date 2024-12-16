@@ -31,7 +31,7 @@ class OnBoardingScreen extends StatelessWidget {
           Positioned(
             bottom: 150.0,
             child: Text(
-              '${obController.currentPage + 1}/3',
+              '${obController.currentPage + 2}/3',
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
             ),
           ),
