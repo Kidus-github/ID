@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       home: const SplashScreen(),
       // home: OnBoardingScreen(),
+
       // home: WelcomeScreen(),
     );
   }

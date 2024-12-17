@@ -9,12 +9,20 @@ import 'package:id/src/screens/OnBoardingScreen/widget/on_boarding_page_widget.d
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingScreen extends StatelessWidget {
+class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
 
   @override
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+}
+
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  int currentPage = 0;
+  final controller = LiquidController();
+  @override
   Widget build(BuildContext context) {
     final obController = OnBroardingController();
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -22,8 +30,8 @@ class OnBoardingScreen extends StatelessWidget {
           LiquidSwipe(
             pages: obController.pages,
             enableSideReveal: true,
-            liquidController: obController.controller,
-            onPageChangeCallback: obController.onPageChangeCallback,
+            liquidController: controller,
+            onPageChangeCallback: onPageChangeCallback,
             slideIconWidget: const Icon(
               Icons.arrow_back_ios,
             ),
@@ -31,14 +39,15 @@ class OnBoardingScreen extends StatelessWidget {
           Positioned(
             bottom: 150.0,
             child: Text(
-              '${obController.currentPage + 2}/3',
+              '${currentPage + 1}/3',
+              // 'hello',
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
             ),
           ),
           Positioned(
             bottom: 60.0,
             child: OutlinedButton(
-              onPressed: () => obController.animateToNextSlide,
+              onPressed: () => animateToNextSlide(),
               style: ElevatedButton.styleFrom(
                 side: const BorderSide(color: Colors.black26),
                 shape: const CircleBorder(),
@@ -58,7 +67,7 @@ class OnBoardingScreen extends StatelessWidget {
             top: 50.0,
             right: 20.0,
             child: TextButton(
-              onPressed: () => obController.skip,
+              onPressed: () => skip(),
               child: const Text(
                 'Skip',
                 style: TextStyle(
@@ -68,20 +77,26 @@ class OnBoardingScreen extends StatelessWidget {
               ),
             ),
           ),
-          Obx(
-            () => Positioned(
-                bottom: 10.0,
-                child: AnimatedSmoothIndicator(
-                  activeIndex: obController.currentPage.value,
-                  count: 3,
-                  effect: const WormEffect(
-                      activeDotColor: Color(0xff272727), dotHeight: 5.0),
-                )),
-          )
+          Positioned(
+              bottom: 10.0,
+              child: AnimatedSmoothIndicator(
+                activeIndex: currentPage,
+                count: 3,
+                effect: const WormEffect(
+                    activeDotColor: Color(0xff272727), dotHeight: 5.0),
+              )),
         ],
       ),
     );
   }
 
-  // Updating the current page when the page changes
+  onPageChangeCallback(int activePageIndex) => setState(() {
+        currentPage = activePageIndex;
+      });
+  animateToNextSlide() {
+    int nextPage = currentPage + 1;
+    controller.animateToPage(page: nextPage);
+  }
+
+  skip() => controller.jumpToPage(page: 2);
 }

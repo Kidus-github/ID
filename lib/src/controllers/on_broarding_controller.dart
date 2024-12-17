@@ -7,8 +7,6 @@ import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 import '../constants/image_string.dart';
 
 class OnBroardingController extends GetxController {
-  final LiquidController controller = LiquidController();
-  RxInt currentPage = 0.obs;
   final pages = [
     OnBoardingPageWidget(
       model: OnBoardingModel(
@@ -36,12 +34,4 @@ class OnBroardingController extends GetxController {
       ),
     ),
   ];
-  skip() => controller.jumpToPage(page: 2);
-  animateToNextSlide() {
-    int nextPage = controller.currentPage + 1;
-    controller.animateToPage(page: nextPage);
-  }
-
-  void onPageChangeCallback(int activePageIndex) =>
-      currentPage.value = activePageIndex;
 }
