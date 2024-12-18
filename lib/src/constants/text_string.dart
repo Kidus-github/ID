@@ -20,3 +20,16 @@ const String kWelcomeText1 = "Who Are You ?";
 const String kWelcomeText2 = "Teacher";
 const String kWelcomeText3 = "Student";
 const String kWelcomeText4 = "Next";
+
+//--SignIn Screen Text
+
+const String kSignInText1 = "Sign in";
+const String kSignInText2 = "Don’t you have an account? ";
+const String kSignInText3 = "Sign up";
+const String kSignInText4 = "Email";
+const String kSignInText5 = "Password";
+const String kSignInText6 = "forgot password?";
+const String kSignInText7 = "SIGN IN";
+const String kSignInText8 = "or";
+const String kSignInText9 = "Sign in with Google";
+const String kSignInText10 = "Sign in with Apple";

@@ -17,6 +17,7 @@ dependencies:
   liquid_swipe: ^3.1.0
   smooth_page_indicator: ^1.2.0+3
   get: ^4.6.6
+  icons_plus: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -31,4 +32,5 @@ flutter:
     - assets/images/
     - assets/images/on_boarding_images/
     - assets/images/welcome_screen_images/
+    - assets/logo/
     - assets/logo/logo.png

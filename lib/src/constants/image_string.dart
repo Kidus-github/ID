@@ -13,3 +13,6 @@ const String kOnBoardingImage2 =
 
 const String kWelcomeImage1 = "assets/images/welcome_screen_images/teacher.png";
 const String kWelcomeImage2 = "assets/images/welcome_screen_images/student.png";
+
+//---logo
+const String kLogo = "assets/logo/logo.png";
