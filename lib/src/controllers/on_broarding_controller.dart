@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/models/model_on_boarding.dart';
 import 'package:id/src/screens/OnBoardingScreen/widget/on_boarding_page_widget.dart';
-import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 
 import '../constants/image_string.dart';
 

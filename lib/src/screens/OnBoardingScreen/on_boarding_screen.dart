@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:id/src/constants/colors.dart';
-import 'package:id/src/constants/image_string.dart';
-import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/controllers/on_broarding_controller.dart';
-import 'package:id/src/models/model_on_boarding.dart';
-import 'package:id/src/screens/OnBoardingScreen/widget/on_boarding_page_widget.dart';
+import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -19,11 +15,12 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   int currentPage = 0;
   final controller = LiquidController();
+  final obController = OnBroardingController();
   @override
   Widget build(BuildContext context) {
-    final obController = OnBroardingController();
-
     return Scaffold(
+      // backgroundColor: darkMode ? kDarkColor: ,
+
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -31,6 +28,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             pages: obController.pages,
             enableSideReveal: true,
             liquidController: controller,
+            waveType: WaveType.circularReveal,
             onPageChangeCallback: onPageChangeCallback,
             slideIconWidget: const Icon(
               Icons.arrow_back_ios,
@@ -95,8 +93,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       });
   animateToNextSlide() {
     int nextPage = currentPage + 1;
-    controller.animateToPage(page: nextPage);
+    if (nextPage < obController.pages.length) {
+      controller.animateToPage(page: nextPage);
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+      );
+    }
   }
 
-  skip() => controller.jumpToPage(page: 2);
+  skip() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+    );
+  }
+
+  // skip() => controller.jumpToPage(page: 2);
 }
