@@ -33,3 +33,18 @@ const String kSignInText7 = "SIGN IN";
 const String kSignInText8 = "or";
 const String kSignInText9 = "Sign in with Google";
 const String kSignInText10 = "Sign in with Apple";
+
+//---SignUp Screen Text
+
+const String kSignUpText1 = "Sign up";
+const String kSignUpText2 = "Already have an account?";
+const String kSignUpText3 = "Sign in";
+const String kSignUpText4 = "First Name";
+const String kSignUpText5 = "Middle Name";
+const String kSignUpText6 = "Phone No.";
+const String kSignUpText7 = "Email";
+const String kSignUpText8 = "Password";
+const String kSignUpText9 = "SIGN UP";
+const String kSignUpText10 = "or";
+const String kSignUpText11 = "Sign Up with Google";
+const String kSignUpText12 = "Sign Up with Apple";
