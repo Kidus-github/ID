@@ -82,11 +82,17 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
                 ),
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    kSignInText6,
-                    style: TextStyle(decoration: TextDecoration.underline),
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context, builder: (context) => Container());
+                  },
+                  child: const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      kSignInText6,
+                      style: TextStyle(decoration: TextDecoration.underline),
+                    ),
                   ),
                 ),
                 SizedBox(
