@@ -85,7 +85,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 GestureDetector(
                   onTap: () {
                     showModalBottomSheet(
-                        context: context, builder: (context) => Container());
+                        context: context,
+                        builder: (context) => Container(
+                              padding: const EdgeInsets.all(20.0),
+                              child: const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [Te],
+                              ),
+                            ));
                   },
                   child: const Align(
                     alignment: Alignment.center,

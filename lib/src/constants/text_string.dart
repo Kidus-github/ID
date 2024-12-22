@@ -48,3 +48,25 @@ const String kSignUpText9 = "SIGN UP";
 const String kSignUpText10 = "or";
 const String kSignUpText11 = "Sign Up with Google";
 const String kSignUpText12 = "Sign Up with Apple";
+
+
+
+//--forgot password Text
+
+const String tForgetPasswordTite = "Make Selection! ";
+const String tForgetPasswordSubTitte = "Select one of the options given below to reset your password.";
+const String tResetViaEMaiI =
+const String tResetViaPhone= 
+
+
+
+
+
+
+
+"Reset
+= "Reset
+
+
+kmilE -Mail Verification." ,
+via Phone Verification.
