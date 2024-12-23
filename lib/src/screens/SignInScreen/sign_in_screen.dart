@@ -3,6 +3,8 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/ForgetPasswordScreen/forget_password_screen/forget_password_model_bottom_sheet.dart';
+import 'package:id/src/screens/ForgetPasswordScreen/forget_password_screen/widget/forget_password_btn_widget.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -84,15 +86,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) => Container(
-                              padding: const EdgeInsets.all(20.0),
-                              child: const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [Te],
-                              ),
-                            ));
+                    ForgotPasswordScreen.buildShowModelBottomSheet(context);
                   },
                   child: const Align(
                     alignment: Alignment.center,

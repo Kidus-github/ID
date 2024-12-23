@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       // home: const SplashScreen(),
       // home: OnBoardingScreen(),
-      // home: const SignInScreen(),
-      home: const SignUpScreen(),
+      home: const SignInScreen(),
+      // home: const SignUpScreen(),
       // home: WelcomeScreen(),
     );
   }
