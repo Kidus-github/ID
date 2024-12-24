@@ -58,3 +58,11 @@ const String kResetViaEmail = "Reset via E-Mail Verification.";
 const String kResetViaPhone = "Reset  via Phone Verification.";
 const String kEmail = "Email";
 const String kPhoneNo = "Phone No";
+const String kForgetPassword = "Forgot Password";
+const String kNext = "Next";
+
+//--OTP Text
+
+const String kOtpTitle = "CO\nDE";
+const String kOtpSubTitle = "Verification";
+const String kOtpMessage = "Enter the verification code sent at ";

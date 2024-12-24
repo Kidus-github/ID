@@ -18,6 +18,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   get: ^4.6.6
   icons_plus: ^5.0.0
+  flutter_otp_text_field: ^1.4.0+2
 
 dev_dependencies:
   flutter_test:
@@ -32,5 +33,6 @@ flutter:
     - assets/images/
     - assets/images/on_boarding_images/
     - assets/images/welcome_screen_images/
+    - assets/images/forgot_password_images/
     - assets/logo/
     - assets/logo/logo.png

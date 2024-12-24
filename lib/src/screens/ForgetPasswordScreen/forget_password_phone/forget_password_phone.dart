@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/constants/text_string.dart';
 
-class ForgetPasswordMail extends StatelessWidget {
-  const ForgetPasswordMail({super.key});
+class ForgetPasswordPhone extends StatelessWidget {
+  const ForgetPasswordPhone({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,9 @@ class ForgetPasswordMail extends StatelessWidget {
                       children: [
                         TextFormField(
                           decoration: const InputDecoration(
-                              label: Text(kEmail),
-                              hintText: kEmail,
-                              prefixIcon: Icon(Icons.mail_outline_rounded)),
+                              label: Text(kPhoneNo),
+                              hintText: kPhoneNo,
+                              prefixIcon: Icon(Icons.phone)),
                         ),
                         const SizedBox(height: 20.0),
                         SizedBox(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ForgetPasswordBtnWidget extends StatelessWidget {
   const ForgetPasswordBtnWidget({
     super.key,
+    required this.onTap,
     required this.title,
     required this.icons,
     required this.subTitle,
@@ -10,10 +11,12 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
   final String title;
   final IconData icons;
   final String subTitle;
+  final Function() onTap;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(

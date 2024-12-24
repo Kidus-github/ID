@@ -16,3 +16,5 @@ const String kWelcomeImage2 = "assets/images/welcome_screen_images/student.png";
 
 //---logo
 const String kLogo = "assets/logo/logo.png";
+
+const String kForgot = "assets/images/forgot_password_images/forgot.png";
