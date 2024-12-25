@@ -1,8 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -39,18 +41,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 RichText(
-                  text: const TextSpan(children: [
-                    TextSpan(
+                  text: TextSpan(children: [
+                    const TextSpan(
                         text: kSignUpText2, style: TextStyle(fontSize: 14)),
                     TextSpan(
                       text: kSignUpText3,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                           decoration: TextDecoration.underline,
                           color: Colors.blue),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignInScreen()));
+                        },
                     )
-                  ], style: TextStyle(color: Colors.black)),
+                  ], style: const TextStyle(color: Colors.black)),
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 40.0),
