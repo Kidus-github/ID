@@ -18,3 +18,10 @@ const String kWelcomeImage2 = "assets/images/welcome_screen_images/student.png";
 const String kLogo = "assets/logo/logo.png";
 
 const String kForgot = "assets/images/forgot_password_images/forgot.png";
+
+//---Teacher Screen Icon Images
+
+const String kCalander = "assets/images/teacher_screen_images/calendar.png";
+const String kFilter = "assets/images/teacher_screen_images/down.png";
+const String kLocation = "assets/images/teacher_screen_images/location.png";
+const String kPencil = "assets/images/teacher_screen_images/pencil.png";

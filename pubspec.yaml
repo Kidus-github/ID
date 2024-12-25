@@ -35,4 +35,5 @@ flutter:
     - assets/images/welcome_screen_images/
     - assets/images/forgot_password_images/
     - assets/logo/
+    - assets/images/teacher_screen_images/
     - assets/logo/logo.png
