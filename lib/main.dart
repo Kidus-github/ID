@@ -3,6 +3,7 @@ import 'package:id/src/screens/OnBoardingScreen/on_boarding_screen.dart';
 import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
 import 'package:id/src/screens/SignUpScreen/sign_up_screen.dart';
 import 'package:id/src/screens/SplashScreen/splash_screen.dart';
+import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
 import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
 import 'package:id/src/utils/theme/theme.dart';
 
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
       // home: const SignInScreen(),
       // home: const SignUpScreen(),
-      // home: WelcomeScreen(),
+      home: const TeacherHomeScreen(),
     );
   }
 }

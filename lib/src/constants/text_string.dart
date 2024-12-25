@@ -64,3 +64,19 @@ const String kNext = "Next";
 const String kOtpTitle = "CO\nDE";
 const String kOtpSubTitle = "Verification";
 const String kOtpMessage = "Enter the verification code sent at ";
+
+//--Teachers Home Screen
+
+const String kTeachersTitle = "Attendance Management";
+const String kTeacherCreatebtn = "Create";
+const String kTeacherFilterbtn = "Filter";
+const String kTeacherClassLstTitle1 = "HiLCoE Wednsday Gibi Gubae";
+const String kTeacherClassLstDate1 = "Nov,25,2023 - Dec,25,2024";
+const String kTeacherClassLstTitle2 = "HiLCoE Thursday Gibi Gubae";
+const String kTeacherClassLstDate2 = "Nov,25,2023 - Dec,25,2024";
+const String kTeacherClassLstTitle3 = "Friday Mezmur Tinat";
+const String kTeacherClassLstDate3 = "Nov,25,2023 - Dec,25,2024";
+const String kTeacherClassLstTitle4 = "Monday Abinet Timihrt";
+const String kTeacherClassLstDate4 = "Nov,25,2023 - Dec,25,2024";
+const String kTeacherClassLstTitle5 = "Guzo Attendance";
+const String kTeacherClassLstDate5 = "Nov,25,2023 - Dec,25,2024";
