@@ -2,13 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/SignUpScreen/sign_up_screen.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
   @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  bool teacher = false;
+  bool student = false;
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -25,11 +34,16 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  setState(() {
+                    teacher = !teacher;
+                    student = false;
+                  });
+                },
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: kBoxBgColor,
+                      color: teacher ? kBoxBgColor : kWelcomeColor,
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.25),
@@ -58,11 +72,16 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  setState(() {
+                    student = !student;
+                    teacher = false;
+                  });
+                },
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
-                      color: kBoxBgColor,
+                      color: student ? kBoxBgColor : kWelcomeColor,
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.25), // Shadow color
@@ -106,7 +125,19 @@ class WelcomeScreen extends StatelessWidget {
                           color: Colors.black.withOpacity(0.25))
                     ]),
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      (student || teacher)
+                          ? Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignUpScreen()))
+                          : ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                    Text("Please select a role to proceed."),
+                              ),
+                            );
+                    },
                     child: const Text(
                       kWelcomeText4,
                       style: TextStyle(
