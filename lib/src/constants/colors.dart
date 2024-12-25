@@ -7,3 +7,4 @@ const kDarkColor = Colors.black;
 const kLightColor = Colors.white;
 
 const kBoxBgColor = Color(0xfff7f7f7);
+const kWelcomeColor = Color(0xfffef7ff);

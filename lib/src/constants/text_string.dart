@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 // OnBoaarding Screen Texts
 const String kOnBoarding1Text1 = "Effortless Attendance Tracking";
 const String kOnBoarding1Text2 =
@@ -37,7 +35,7 @@ const String kSignInText10 = "Sign in with Apple";
 //---SignUp Screen Text
 
 const String kSignUpText1 = "Sign up";
-const String kSignUpText2 = "Already have an account?";
+const String kSignUpText2 = "Already have an account? ";
 const String kSignUpText3 = "Sign in";
 const String kSignUpText4 = "First Name";
 const String kSignUpText5 = "Middle Name";
