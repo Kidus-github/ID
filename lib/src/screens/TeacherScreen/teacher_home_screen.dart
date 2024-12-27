@@ -102,7 +102,10 @@ class TeacherHomeScreen extends StatelessWidget {
               height: 10.0,
             ),
 
-            //This can be created ass a widget
+            ///
+            ///
+            ///
+            ///
             Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               padding: const EdgeInsets.only(
@@ -307,8 +310,33 @@ class TeacherHomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+
+            ///
+            ///
+            ///
           ]),
+        ),
+        bottomNavigationBar: Container(
+          height: 80.0,
+          padding: const EdgeInsets.all(20.0),
+          margin: const EdgeInsets.symmetric(horizontal: 56.0, vertical: 15.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.25),
+                blurRadius: 4.0,
+                spreadRadius: 0.0,
+                blurStyle: BlurStyle.outer,
+                offset: const Offset(0, -4),
+              )
+            ],
+            color: const Color(0xffD9D9D9).withOpacity(0.25),
+          ),
+          child: Row(
+            children: [],
+          ),
         ),
       ),
     );
