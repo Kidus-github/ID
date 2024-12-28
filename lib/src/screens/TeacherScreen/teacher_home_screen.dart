@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:id/src/common_widget/header.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/TeacherScreen/widget/sub_header.dart';
 
 class TeacherHomeScreen extends StatelessWidget {
   const TeacherHomeScreen({super.key});
@@ -16,84 +17,7 @@ class TeacherHomeScreen extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Header(),
-            const Text(
-              kTeachersTitle,
-              textAlign: TextAlign.left,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  //this can be a widget to remove repetion
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 3.0, horizontal: 15.0),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                              color: Colors.black,
-                              width: 1.0,
-                              style: BorderStyle.solid,
-                              strokeAlign: BorderSide.strokeAlignInside)),
-                      child: const Row(
-                        children: [
-                          Icon(
-                            Icons.add,
-                            size: 24.0,
-                          ),
-                          SizedBox(
-                            width: 3,
-                          ),
-                          Text(
-                            kTeacherCreatebtn,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 14.0),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width * 0.04,
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 3.0, horizontal: 15.0),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(
-                              color: Colors.black,
-                              width: 1.0,
-                              style: BorderStyle.solid,
-                              strokeAlign: BorderSide.strokeAlignInside)),
-                      child: const Row(
-                        children: [
-                          Image(
-                            image: AssetImage(kFilter),
-                            width: 24,
-                            height: 24,
-                          ),
-                          SizedBox(
-                            width: 3,
-                          ),
-                          Text(
-                            kTeacherFilterbtn,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 14.0),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const SubHeader(),
             const Divider(
               thickness: 2,
               color: Color(0xffD9D9D9),
