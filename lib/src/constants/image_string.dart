@@ -25,3 +25,18 @@ const String kCalander = "assets/images/teacher_screen_images/calendar.png";
 const String kFilter = "assets/images/teacher_screen_images/down.png";
 const String kLocation = "assets/images/teacher_screen_images/location.png";
 const String kPencil = "assets/images/teacher_screen_images/pencil.png";
+
+//---Bottom Nav Bar Images
+const String kHomeLight = "assets/images/bottom_nav_bar_images/homeLight.png";
+const String kHome = "assets/images/bottom_nav_bar_images/home.png";
+const String kCalanderDark = "assets/images/bottom_nav_bar_images/calendar.png";
+const String kCalanderLight =
+    "assets/images/bottom_nav_bar_images/calendarLight.png";
+
+const String kNotificationDark =
+    "assets/images/bottom_nav_bar_images/notification.png";
+const String kNotificationLight =
+    "assets/images/bottom_nav_bar_images/notificationLight.png";
+
+const String kSettingDark = "assets/images/bottom_nav_bar_images/gear.png";
+const String kSettingLight = "assets/images/bottom_nav_bar_images/gear.png";
