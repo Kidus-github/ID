@@ -5,14 +5,15 @@ class TopActionButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
+    required this.ontap,
   });
   final String text;
   final IconData icon;
-
+  final Function()? ontap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: ontap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 3.0, horizontal: 15.0),
         decoration: BoxDecoration(
