@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/TeacherScreen/screens/create_class.dart';
 import 'package:id/src/screens/TeacherScreen/widget/top_action_btn.dart';
 
 class SubHeader extends StatelessWidget {
@@ -22,16 +23,23 @@ class SubHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               //this can be a widget to remove repetion
-              const TopActionButton(
+              TopActionButton(
                 text: kTeacherCreatebtn,
                 icon: Icons.add,
+                ontap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CreateClass()));
+                },
               ),
               SizedBox(
                 width: size.width * 0.04,
               ),
-              const TopActionButton(
+              TopActionButton(
                 text: kTeacherFilterbtn,
                 icon: Icons.filter_list_rounded,
+                ontap: () {},
               ),
             ],
           ),

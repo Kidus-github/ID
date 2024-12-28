@@ -80,3 +80,7 @@ const String kTeacherClassLstTitle4 = "Monday Abinet Timihrt";
 const String kTeacherClassLstDate4 = "Nov,25,2023 - Dec,25,2024";
 const String kTeacherClassLstTitle5 = "Guzo Attendance";
 const String kTeacherClassLstDate5 = "Nov,25,2023 - Dec,25,2024";
+
+//--create class
+
+const String kPageTitle = "Create";
