@@ -19,6 +19,7 @@ dependencies:
   get: ^4.6.6
   icons_plus: ^5.0.0
   flutter_otp_text_field: ^1.4.0+2
+  syncfusion_flutter_calendar: ^28.1.36
 
 dev_dependencies:
   flutter_test:
