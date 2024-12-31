@@ -54,6 +54,9 @@ class _CreateClassState extends State<CreateClass> {
                   dataSource: ClassDataSource(getAppointments()),
                 ),
               ),
+              Row(
+                children: [TextField(), TextField()],
+              )
             ],
           ),
         ),
@@ -76,7 +79,7 @@ List<Appointment> getAppointments() {
       subject: "Conference",
       color: Colors.blue,
       recurrenceRule: 'FREQ=DAILY;COUNT=10'));
-
+//  this is would be edited to a text box file
   return classes;
 }
 
