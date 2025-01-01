@@ -84,3 +84,18 @@ const String kTeacherClassLstDate5 = "Nov,25,2023 - Dec,25,2024";
 //--create class
 
 const String kPageTitle = "Create";
+const String kNameHint = "Class / Event Name: ";
+const String kFrom = "From: ";
+const String kTo = "To: ";
+const String kStartDateSelected = "Sat, Jan 25";
+const String kStartTimeSelected = "12:00 PM";
+const String kEndDateSelected = "Sat, Jan 25";
+const String kEndTimeSelected = "01:00 AM";
+const String kOneDayEvent = "One Day Event";
+const String kRepeat = "Repeat ";
+const String kDescription = "Description";
+const String kAddCoTeacher = "Add Co-Teacher";
+const String kLocation = "Location";
+
+//--Edit class
+const String kPageTitleEdit = "Edit";
