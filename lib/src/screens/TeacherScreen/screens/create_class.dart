@@ -68,9 +68,9 @@ class _CreateClassState extends State<CreateClass> {
                           dataSource: ClassDataSource(getAppointments()),
                         ),
                       ),
-                      Container(
+                      const SizedBox(
                         width: double.infinity,
-                        child: const Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Checkbox(value: true, onChanged: null),
