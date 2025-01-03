@@ -30,7 +30,9 @@ class SubHeader extends StatelessWidget {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CreateClass()));
+                          builder: (context) => const CreateClass(
+                                PageTitle: kCreatePageTitle,
+                              )));
                 },
               ),
               SizedBox(
