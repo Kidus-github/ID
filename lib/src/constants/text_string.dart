@@ -83,7 +83,7 @@ const String kTeacherClassLstDate5 = "Nov,25,2023 - Dec,25,2024";
 
 //--create class
 
-const String kPageTitle = "Create";
+const String kCreatePageTitle = "Create";
 const String kNameHint = "Class / Event Name: ";
 const String kFrom = "From: ";
 const String kTo = "To: ";
@@ -98,4 +98,4 @@ const String kAddCoTeacher = "Add Co-Teacher";
 const String kLocation = "Location";
 
 //--Edit class
-const String kPageTitleEdit = "Edit";
+const String kEditPageTitle = "Edit";
