@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:id/src/common_widget/bottom_nav_bar.dart';
 import 'package:id/src/common_widget/header.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/TeacherScreen/widget/calendar.dart';
+import 'package:id/src/screens/TeacherScreen/widget/check_box_for_event.dart';
+import 'package:id/src/screens/TeacherScreen/widget/class_action_btn.dart';
+import 'package:id/src/screens/TeacherScreen/widget/class_text_field.dart';
+import 'package:id/src/screens/TeacherScreen/widget/date_picker.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-class CreateClass extends StatefulWidget {
-  const CreateClass({super.key});
+class CreateClass extends StatelessWidget {
+  const CreateClass({
+    super.key,
+    required this.pageTitle,
+  });
+  final String pageTitle;
 
-  @override
-  State<CreateClass> createState() => _CreateClassState();
-}
-
-class _CreateClassState extends State<CreateClass> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,9 +26,10 @@ class _CreateClassState extends State<CreateClass> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Header(),
-              const Text(
-                kPageTitle,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32.0),
+              Text(
+                pageTitle,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 32.0),
               ),
               const SizedBox(
                 height: 3.0,
@@ -49,199 +54,25 @@ class _CreateClassState extends State<CreateClass> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 10.0),
-                        padding: const EdgeInsets.only(top: 5.0),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            border: Border.all(
-                                color: Colors.black,
-                                width: 1.0,
-                                style: BorderStyle.solid,
-                                strokeAlign: BorderSide.strokeAlignInside)),
-                        child: SfCalendar(
-                          view: CalendarView.month,
-                          cellBorderColor: Colors.black,
-                          todayHighlightColor: Colors.black,
-
-                          // initialDisplayDate: DateTime(2020, 11, 10, 08, 30),
-                          dataSource: ClassDataSource(getAppointments()),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: double.infinity,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Checkbox(value: true, onChanged: null),
-                            Text(kOneDayEvent)
-                          ],
-                        ),
-                      ),
-                      Row(
+                      const Calendar(),
+                      const OneDayEventCheckBox(),
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                kFrom,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              GestureDetector(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(3.0),
-                                      border: Border.all(
-                                          color: Colors.black,
-                                          width: 0.3,
-                                          style: BorderStyle.solid,
-                                          strokeAlign:
-                                              BorderSide.strokeAlignInside)),
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(kEndDateSelected),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Text(kEndTimeSelected),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 8.0,
-                                      ),
-                                      Icon(Icons.edit_calendar_outlined)
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
+                          DatePicker(
+                            kDateSelected: kStartDateSelected,
+                            kType: kFrom,
+                            kTimeSelected: kStartTimeSelected,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(kTo,
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              GestureDetector(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(3.0),
-                                      border: Border.all(
-                                          color: Colors.black,
-                                          width: 0.5,
-                                          style: BorderStyle.solid,
-                                          strokeAlign:
-                                              BorderSide.strokeAlignInside)),
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(kEndDateSelected),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Text(kEndTimeSelected),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 8.0,
-                                      ),
-                                      Icon(Icons.edit_calendar_outlined)
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
+                          DatePicker(
+                            kDateSelected: kEndDateSelected,
+                            kType: kTo,
+                            kTimeSelected: kEndTimeSelected,
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      const TextField(
-                        decoration: InputDecoration(
-                            labelText: kRepeat,
-                            hintText: kOneDayEvent,
-                            labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                            border: UnderlineInputBorder(),
-                            focusedBorder: UnderlineInputBorder()),
-                      ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      const TextField(
-                        decoration: InputDecoration(
-                            hintText: kDescription,
-                            hintStyle: TextStyle(fontWeight: FontWeight.bold),
-                            border: UnderlineInputBorder(),
-                            focusedBorder: UnderlineInputBorder()),
-                      ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      const TextField(
-                        decoration: InputDecoration(
-                            labelText: kAddCoTeacher,
-                            labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                            hintText: "None",
-                            border: UnderlineInputBorder(),
-                            focusedBorder: UnderlineInputBorder()),
-                      ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      const TextField(
-                        decoration: InputDecoration(
-                            hintText: kLocation,
-                            hintStyle: TextStyle(fontWeight: FontWeight.bold),
-                            suffixIcon: Icon(
-                              Icons.add_location,
-                              color: Color(0xff737373),
-                              size: 26,
-                            ),
-                            border: UnderlineInputBorder(),
-                            focusedBorder: UnderlineInputBorder()),
-                      ),
-                      const SizedBox(
-                        height: 25.0,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            side: const BorderSide(color: Colors.black),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8.0, horizontal: 44.0)),
-                        child: const Text(
-                          kPageTitle,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.0),
-                        ),
-                      ),
+                      const ClassTextFields(),
+                      ClassActionBtn(PageTitle: pageTitle),
                     ],
                   ),
                 ),
