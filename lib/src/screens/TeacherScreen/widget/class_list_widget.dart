@@ -27,20 +27,23 @@ class ClassListWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                date,
-                style:
-                    const TextStyle(fontSize: 14.0, color: Color(0xff2a2a2a)),
-              ),
-            ],
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  date,
+                  style:
+                      const TextStyle(fontSize: 14.0, color: Color(0xff2a2a2a)),
+                ),
+              ],
+            ),
           ),
           GestureDetector(
             onTap: () {},

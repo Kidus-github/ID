@@ -31,7 +31,7 @@ class SubHeader extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const CreateClass(
-                                PageTitle: kCreatePageTitle,
+                                pageTitle: kCreatePageTitle,
                               )));
                 },
               ),
