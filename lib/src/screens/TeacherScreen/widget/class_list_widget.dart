@@ -22,6 +22,7 @@ class ClassListWidget extends StatelessWidget {
           MaterialPageRoute(
               builder: (context) => AttendanceList(
                     aTitle: title,
+                    aDate: date,
                   )),
         );
       },
