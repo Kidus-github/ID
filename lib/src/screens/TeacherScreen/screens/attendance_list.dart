@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/common_widget/header.dart';
-import 'package:id/src/screens/TeacherScreen/widget/sub_header.dart';
+import 'package:id/src/screens/TeacherScreen/widget/attendance_title_section.dart';
 
 class AttendanceList extends StatelessWidget {
-  const AttendanceList({super.key});
+  const AttendanceList({super.key, required this.aTitle, required this.aDate});
+  final String aTitle;
+  final String aDate;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +16,10 @@ class AttendanceList extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Header(),
+            AttendanceTitleSection(
+              attendanceTitle: aTitle,
+              attendanceDate: aDate,
+            ),
           ]),
         ),
       ),
