@@ -23,7 +23,7 @@ class BottomNavBar extends StatelessWidget {
             offset: const Offset(0, -4),
           )
         ],
-        color: const Color(0xffD9D9D9).withOpacity(0.25),
+        color: const Color(0xffD9D9D9).withOpacity(0.1),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
