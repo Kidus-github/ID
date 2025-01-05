@@ -19,7 +19,10 @@ class ClassListWidget extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const AttendanceList()),
+          MaterialPageRoute(
+              builder: (context) => AttendanceList(
+                    aTitle: title,
+                  )),
         );
       },
       child: Container(
