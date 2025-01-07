@@ -26,7 +26,7 @@ class AttendanceTitleSection extends StatelessWidget {
               textAlign: TextAlign.left,
               style: const TextStyle(
                   color: Color(0xff737373),
-                  fontSize: 12.0,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.w500),
               overflow: TextOverflow.ellipsis,
             ),
