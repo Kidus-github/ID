@@ -99,3 +99,4 @@ const String kLocation = "Location";
 
 //--Edit class
 const String kEditPageTitle = "Edit";
+const String kSearch = "Search";
