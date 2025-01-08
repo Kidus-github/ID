@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "394722127903",
+    "project_id": "id-project-hilcoe",
+    "storage_bucket": "id-project-hilcoe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394722127903:android:651d2b1699d7a38205252a",
+        "android_client_info": {
+          "package_name": "com.techhill.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfcP24zgE2uozePYeaV-Lvo9mHW7B56Mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

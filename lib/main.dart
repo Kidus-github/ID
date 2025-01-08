@@ -1,13 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:id/src/screens/OnBoardingScreen/on_boarding_screen.dart';
-import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
-import 'package:id/src/screens/SignUpScreen/sign_up_screen.dart';
+import 'package:id/firebase_options.dart';
+
 import 'package:id/src/screens/SplashScreen/splash_screen.dart';
-import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
-import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
+
 import 'package:id/src/utils/theme/theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -29,3 +30,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
+
+// // ...
+
+// await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+// );
