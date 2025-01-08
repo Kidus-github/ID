@@ -33,6 +33,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             slideIconWidget: const Icon(
               Icons.arrow_back_ios,
             ),
+            positionSlideIcon: 0.88,
           ),
           Positioned(
             bottom: 150.0,

@@ -38,12 +38,12 @@ class OnBoardingPageWidget extends StatelessWidget {
           Column(
             children: [
               Text(
-                kOnBoarding1Text1,
+                model.title,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              const Text(kOnBoarding1Text2,
+              Text(model.subtitle,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: kOnBoardingSubtitleColor)),
+                  style: const TextStyle(color: kOnBoardingSubtitleColor)),
             ],
           ),
           const SizedBox(
