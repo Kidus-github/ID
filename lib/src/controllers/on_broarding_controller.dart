@@ -12,7 +12,7 @@ class OnBroardingController extends GetxController {
         image: kOnBoardingImage1,
         image2: kOnBoardingImage2,
         title: kOnBoarding1Text1,
-        counterText: kOnBoarding1Text3,
+        // counterText: kOnBoarding1Text3,
         subtitle: kOnBoarding1Text2,
       ),
     ),
@@ -20,7 +20,7 @@ class OnBroardingController extends GetxController {
       model: OnBoardingModel(
         image: kOnBoardingImage3,
         title: kOnBoarding2Text1,
-        counterText: kOnBoarding2Text3,
+        // counterText: kOnBoarding2Text3,
         subtitle: kOnBoarding2Text2,
       ),
     ),
@@ -28,7 +28,7 @@ class OnBroardingController extends GetxController {
       model: OnBoardingModel(
         image: kOnBoardingImage4,
         title: kOnBoarding3Text1,
-        counterText: kOnBoarding3Text3,
+        // counterText: kOnBoarding3Text3,
         subtitle: kOnBoarding3Text2,
       ),
     ),
