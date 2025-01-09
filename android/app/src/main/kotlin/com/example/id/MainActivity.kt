@@ -1,4 +1,5 @@
-package com.example.id
+package com.techhill.app;
+
 
 import io.flutter.embedding.android.FlutterActivity
 
