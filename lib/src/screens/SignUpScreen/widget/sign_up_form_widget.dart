@@ -11,7 +11,7 @@ class SignUpFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final controller = SignUpController();
+    final controller = SignUpController.instance;
     final _formKey = GlobalKey<FormState>();
     return Column(
       children: [
@@ -90,6 +90,7 @@ class SignUpFormWidget extends StatelessWidget {
           onTap: () {
             if (_formKey.currentState!.validate()) {
               SignUpController.instance.registerUser(
+                  context,
                   controller.email.text.trim(),
                   controller.password.text.trim());
             }
