@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/constants/image_string.dart';
+import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -64,16 +65,21 @@ class BottomNavBar extends StatelessWidget {
               height: 32.0,
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              // color: Colors.black,
-            ),
-            child: const Image(
-              image: AssetImage(kSettingDark),
-              width: 32.0,
-              height: 32.0,
+          GestureDetector(
+            onTap: () {
+              AuthenticationRepository.instance.logout();
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                // color: Colors.black,
+              ),
+              child: const Image(
+                image: AssetImage(kSettingDark),
+                width: 32.0,
+                height: 32.0,
+              ),
             ),
           ),
         ],

@@ -2,25 +2,31 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/exceptions/signup_email_pasword_failure.dart';
+import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
 import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
 import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
-  final _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   late Rx<User?> firebaseUser;
   @override
   void onReady() {
-    firebaseUser = _auth.currentUser as Rx<User?>;
+    Future.delayed(const Duration(seconds: 6));
+    firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setInitialScreen);
   }
 
   _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => WelcomeScreen())
-        : Get.offAll(() => TeacherHomeScreen());
+    if (user == null) {
+      print('No user logged in. Navigating to WelcomeScreen.');
+      Get.offAll(() => const SignInScreen());
+    } else {
+      print('User logged in: ${user.uid}. Navigating to TeacherHomeScreen.');
+      Get.offAll(() => const TeacherHomeScreen());
+    }
   }
 
   Future<void> createUserWithEmailAndPassword(
@@ -36,19 +42,23 @@ class AuthenticationRepository extends GetxController {
       // Fetch the current user after the account is created
       final user = FirebaseAuth.instance.currentUser;
       print('User created: ${user?.uid}'); // Log the user ID
-
-      // Navigate based on the presence of a user
       if (user != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => TeacherHomeScreen()),
-        );
+        Get.offAll(() => const SignInScreen());
       } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => WelcomeScreen()),
-        );
+        Get.offAll(() => const TeacherHomeScreen());
       }
+      // Navigate based on the presence of a user
+      // if (user != null) {
+      //   Navigator.pushReplacement(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => const TeacherHomeScreen()),
+      //   );
+      // } else {
+      //   Navigator.pushReplacement(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => const SignInScreen()),
+      //   );
+      // }
     } on FirebaseAuthException catch (e) {
       // Handle Firebase-specific exceptions
       final ex = SignUpWithEmailAndPaswordFailure.code(e.code);
