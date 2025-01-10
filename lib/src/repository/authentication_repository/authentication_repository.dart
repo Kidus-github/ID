@@ -13,6 +13,7 @@ class AuthenticationRepository extends GetxController {
   late Rx<User?> firebaseUser;
   @override
   void onReady() {
+    //added some delay for it to get started from where it stoped
     Future.delayed(const Duration(seconds: 6));
     firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges());
@@ -21,10 +22,10 @@ class AuthenticationRepository extends GetxController {
 
   _setInitialScreen(User? user) {
     if (user == null) {
-      print('No user logged in. Navigating to WelcomeScreen.');
+      // print('No user logged in. Navigating to WelcomeScreen.');
       Get.offAll(() => const SignInScreen());
     } else {
-      print('User logged in: ${user.uid}. Navigating to TeacherHomeScreen.');
+      // print('User logged in: ${user.uid}. Navigating to TeacherHomeScreen.');
       Get.offAll(() => const TeacherHomeScreen());
     }
   }
