@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/firebase_options.dart';
+import 'package:id/src/controllers/password_controller.dart';
+import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/controllers/signup_controller.dart';
 import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 
@@ -11,7 +13,8 @@ import 'package:id/src/utils/theme/theme.dart';
 
 void main() {
   Get.put(SignUpController()); // Register the controller
-
+  Get.put(SignInController());
+  Get.put(PasswordController());
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));

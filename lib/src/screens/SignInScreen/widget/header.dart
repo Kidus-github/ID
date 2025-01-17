@@ -15,13 +15,14 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
           image: const AssetImage(kLogo),
           width: size.width * 0.1,
         ),
         Container(
-          margin: const EdgeInsets.only(top: 50),
+          margin: const EdgeInsets.only(top: 30),
           child: const Text(
             kSignInText1,
             style: TextStyle(
