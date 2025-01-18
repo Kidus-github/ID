@@ -11,12 +11,12 @@ import 'package:id/src/screens/SplashScreen/splash_screen.dart';
 
 import 'package:id/src/utils/theme/theme.dart';
 
-void main() {
+void main() async {
   Get.put(SignUpController()); // Register the controller
   Get.put(SignInController());
   Get.put(PasswordController());
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));
   runApp(const MyApp());
 }

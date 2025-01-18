@@ -94,6 +94,11 @@ class SignUpFormWidget extends StatelessWidget {
                   controller.email.text.trim(),
                   controller.password.text.trim());
             }
+            controller.email.clear();
+            controller.firstName.clear();
+            controller.middleName.clear();
+            controller.phoneNo.clear();
+            controller.password.clear();
           },
           child: Center(
             child: Container(
