@@ -11,4 +11,14 @@ class NfcDeviceModule {
       required this.createdAt,
       required this.deviceLocation,
       this.deviceId});
+
+  toJson() {
+    return {
+      "DeviceID": deviceId,
+      "DeviceName": deviceName,
+      "DeviceLocation": deviceLocation,
+      "CreatedAt": createdAt,
+      "AssignedTo": assignedTo,
+    };
+  }
 }

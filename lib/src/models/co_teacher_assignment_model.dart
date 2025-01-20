@@ -9,4 +9,13 @@ class CoTeacherAssignmentModel {
       required this.coTeacherId,
       required this.assignedAt,
       this.assignmentId});
+
+  toJson() {
+    return {
+      "AssignmentId": assignmentId,
+      "ClassId": classId,
+      "Co-TeacherId": coTeacherId,
+      "AssignedAt": assignedAt,
+    };
+  }
 }

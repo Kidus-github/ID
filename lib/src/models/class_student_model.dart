@@ -9,4 +9,13 @@ class ClassStudentModel {
       required this.studentId,
       required this.enrolledAt,
       this.enrollmentId});
+
+  toJson() {
+    return {
+      "EnrollmentId": enrollmentId,
+      "ClassId": classId,
+      "StudentId": studentId,
+      "EnrolledAt": enrolledAt,
+    };
+  }
 }
