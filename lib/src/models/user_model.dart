@@ -1,4 +1,4 @@
-class UserModle {
+class UserModel {
   final String? id;
   final String firstName;
   final String middleName;
@@ -10,7 +10,7 @@ class UserModle {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  UserModle(
+  UserModel(
       {required this.createdAt,
       required this.firstName,
       required this.email,
