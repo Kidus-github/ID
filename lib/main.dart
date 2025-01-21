@@ -6,25 +6,34 @@ import 'package:id/src/controllers/password_controller.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/controllers/signup_controller.dart';
 import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:id/src/repository/user_repository/user_repository.dart';
 
 import 'package:id/src/screens/SplashScreen/splash_screen.dart';
 
 import 'package:id/src/utils/theme/theme.dart';
 
 void main() async {
-  Get.put(SignUpController()); // Register the controller
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Ensure Flutter bindings are initialized first.
+
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // Register the controllers and repositories after Firebase is initialized
+  Get.put(AuthenticationRepository());
+  Get.put(UserRepository());
+  Get.put(SignUpController());
   Get.put(SignInController());
   Get.put(PasswordController());
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((value) => Get.put(AuthenticationRepository()));
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -33,9 +42,6 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: const SplashScreen(),
-      // home: const SignInScreen(),
-      // home: const SignUpScreen(),
-      // home: const TeacherHomeScreen(),
     );
   }
 }
