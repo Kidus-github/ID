@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/controllers/signup_controller.dart';
+import 'package:id/src/models/user_model.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
@@ -93,7 +94,17 @@ class SignUpFormWidget extends StatelessWidget {
                   context,
                   controller.email.text.trim(),
                   controller.password.text.trim());
+              SignUpController.instance.createUser(UserModel(
+                  createdAt: DateTime.now(),
+                  firstName: controller.firstName.text.trim(),
+                  email: controller.email.text.trim(),
+                  middleName: controller.middleName.text.trim(),
+                  nfcTagId: "",
+                  phoneNo: controller.phoneNo.text.trim(),
+                  updatedAt: DateTime.now(),
+                  role: null));
             }
+
             controller.email.clear();
             controller.firstName.clear();
             controller.middleName.clear();
