@@ -5,6 +5,7 @@ class ClassModel {
   final String className;
   final String teacherId;
   final Map<String, String>? coTeacherId; // Corrected to Map<String, String>
+  final String? description;
   final DateTime startDate;
   final DateTime endDate;
   final DateTime startTime;
@@ -19,6 +20,7 @@ class ClassModel {
     this.classId,
     required this.className,
     required this.teacherId,
+    this.description,
     this.coTeacherId,
     required this.startDate,
     required this.endDate,
