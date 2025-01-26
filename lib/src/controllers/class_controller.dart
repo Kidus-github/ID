@@ -17,6 +17,7 @@ class ClassController {
   final repetitionRule = TextEditingController();
   final oneDayEvent = TextEditingController();
   final location = TextEditingController();
+  final description = TextEditingController();
   // final  createdAt;
   // final  updatedAt;
   // final  teacherId;
