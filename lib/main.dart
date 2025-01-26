@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/firebase_options.dart';
+import 'package:id/src/controllers/class_controller.dart';
 import 'package:id/src/controllers/password_controller.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/controllers/signup_controller.dart';
@@ -27,7 +28,7 @@ void main() async {
   Get.put(SignUpController());
   Get.put(SignInController());
   Get.put(PasswordController());
-
+  Get.put(ClassController());
   runApp(const MyApp());
 }
 
