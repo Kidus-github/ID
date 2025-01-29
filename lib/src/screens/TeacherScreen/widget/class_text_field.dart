@@ -39,16 +39,16 @@ class ClassTextFields extends StatelessWidget {
         const SizedBox(
           height: 15.0,
         ),
-        TextField(
-          //search and select
-          controller: controller.coTeacherId,
-          decoration: const InputDecoration(
-              labelText: kAddCoTeacher,
-              labelStyle: TextStyle(fontWeight: FontWeight.bold),
-              hintText: "None",
-              border: UnderlineInputBorder(),
-              focusedBorder: UnderlineInputBorder()),
-        ),
+        // TextField(
+        //   //search and select
+        //   controller: controller.coTeacherId,
+        //   decoration: const InputDecoration(
+        //       labelText: kAddCoTeacher,
+        //       labelStyle: TextStyle(fontWeight: FontWeight.bold),
+        //       hintText: "None",
+        //       border: UnderlineInputBorder(),
+        //       focusedBorder: UnderlineInputBorder()),
+        // ),
         const SizedBox(
           height: 15.0,
         ),
