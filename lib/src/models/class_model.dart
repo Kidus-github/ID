@@ -33,19 +33,19 @@ class ClassModel {
     required this.updatedAt,
   });
 
-  toJson() => {
-        "ClassId": classId,
-        "ClassName": className,
-        "TeacherId": teacherId,
-        "CoTeacherId": coTeacherId, // Corrected to Map<String, String>
-        "StartDate": startDate,
-        "EndDate": endDate,
-        "StartTime": startTime,
-        "EndTime": endTime,
-        "RepetitionRule": repetitionRule,
-        "OneDayEvent": oneDayEvent,
-        "Location": location,
-        "CreatedAt": createdAt,
-        "UpdatedAt": updatedAt
-      };
+  // toJson() => {
+  //       "ClassId": classId,
+  //       "ClassName": className,
+  //       "TeacherId": teacherId,
+  //       "CoTeacherId": coTeacherId, // Corrected to Map<String, String>
+  //       "StartDate": startDate,
+  //       "EndDate": endDate,
+  //       "StartTime": startTime,
+  //       "EndTime": endTime,
+  //       "RepetitionRule": repetitionRule,
+  //       "OneDayEvent": oneDayEvent,
+  //       "Location": location,
+  //       "CreatedAt": createdAt,
+  //       "UpdatedAt": updatedAt
+  //     };
 }

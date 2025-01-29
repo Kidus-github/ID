@@ -66,18 +66,18 @@ class CreateClass extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            DatePicker(
-                              //start date selected
-                              kDateSelected: kStartDateSelected,
-                              kType: kFrom,
-                              kTimeSelected: kStartTimeSelected,
-                            ),
-                            DatePicker(
-                              //end date selected
-                              kDateSelected: kEndDateSelected,
-                              kType: kTo,
-                              kTimeSelected: kEndTimeSelected,
-                            ),
+                            // DatePicker(
+                            //   //start date selected
+                            //   kDateSelected: kStartDateSelected,
+                            //   kType: kFrom,
+                            //   kTimeSelected: kStartTimeSelected,
+                            // ),
+                            // DatePicker(
+                            //   //end date selected
+                            //   kDateSelected: kEndDateSelected,
+                            //   kType: kTo,
+                            //   kTimeSelected: kEndTimeSelected,
+                            // ),
                           ],
                         ),
                         ClassTextFields(
