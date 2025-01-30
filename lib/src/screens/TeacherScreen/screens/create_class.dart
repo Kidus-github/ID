@@ -68,15 +68,13 @@ class CreateClass extends StatelessWidget {
                           children: [
                             DatePicker(
                               //start date selected
-                              kDateSelected: kStartDateSelected,
+                              kDateSelected: controller.startDateTime,
                               kType: kFrom,
-                              kTimeSelected: kStartTimeSelected,
                             ),
                             DatePicker(
                               //end date selected
-                              kDateSelected: kEndDateSelected,
+                              kDateSelected: controller.endDateTime,
                               kType: kTo,
-                              kTimeSelected: kEndTimeSelected,
                             ),
                           ],
                         ),
