@@ -1,3 +1,4 @@
+import 'package:board_datetime_picker/board_datetime_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/models/class_model.dart';
@@ -10,10 +11,8 @@ class ClassController {
 
   final coTeacherId =
       TextEditingController(); // Corrected check for a valid user
-  final startDate = TextEditingController();
-  final endDate = TextEditingController();
-  final startTime = TextEditingController();
-  final endTime = TextEditingController();
+  final startDateTime = BoardDateTimeController();
+  final endDateTime = BoardDateTimeController();
   final repetitionRule = TextEditingController();
   final oneDayEvent = TextEditingController();
   final location = TextEditingController();
