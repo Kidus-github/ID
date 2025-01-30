@@ -6,16 +6,15 @@ class DatePicker extends StatelessWidget {
     super.key,
     required this.kType,
     required this.kDateSelected,
-    required this.kTimeSelected,
   });
   final String kType;
-  final String kDateSelected;
-  final String kTimeSelected;
+  final BoardDateTimeController kDateSelected;
 
   DateTime _selectDateTime = DateTime.now();
 
   void _chooseDateTime(BuildContext context) async {
     final result = await showBoardDateTimePicker(
+      controller: kDateSelected,
       context: context,
       pickerType: DateTimePickerType.datetime,
       initialDate: _selectDateTime,
