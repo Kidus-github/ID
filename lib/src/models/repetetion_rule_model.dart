@@ -67,6 +67,11 @@ class RepetionRule {
     }
     return sessions;
   }
+
+  static String fromString(String text) {
+    // Convert text to RepetitionRule object (modify based on your logic)
+    return "something"; // Replace with correct logic
+  }
 }
 
 // Helper extension to convert weekday integer to string
