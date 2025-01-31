@@ -81,7 +81,9 @@ class CreateClass extends StatelessWidget {
                         ClassTextFields(
                             controller: controller), //text field datas
                         ClassActionBtn(
-                            pageTitle: pageTitle, controller: controller),
+                            pageTitle: pageTitle,
+                            controller: controller,
+                            formKey: _formKey),
                       ],
                     ),
                   ),
