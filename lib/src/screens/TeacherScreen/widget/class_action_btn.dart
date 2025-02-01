@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:id/src/controllers/class_controller.dart';
 import 'package:id/src/models/class_model.dart';
+import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 
 class ClassActionBtn extends StatelessWidget {
   const ClassActionBtn(
@@ -15,6 +18,8 @@ class ClassActionBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthenticationRepository userController = Get.find();
+    User? user = userController.firebaseUser.value;
     DateTime created = DateTime.now();
     return ElevatedButton(
       //on create or on edit to edit the class
@@ -22,7 +27,7 @@ class ClassActionBtn extends StatelessWidget {
         if (formKey.currentState!.validate()) {
           ClassController.instance.createClass(ClassModel(
             className: controller.className.text.trim(),
-            teacherId: "roled user",
+            teacherId: user?.uid ?? "",
             coTeacherId: controller.coTeacherId.text.isNotEmpty
                 ? controller.coTeacherId.text
                     .split(',')
@@ -32,11 +37,11 @@ class ClassActionBtn extends StatelessWidget {
             description: controller.description.text,
             // startDateTime: DateTime.parse(controller.startDateTime.toString()),
             // endDateTime: DateTime.parse(controller.endDateTime.toString()),
-            startDateTime: DateTime.now(),
-            endDateTime: DateTime.now(),
+            startDateTime: controller.startDateTime.value,
+            endDateTime: controller.endDateTime.value,
             // repetitionRule:
             //     RepetionRule.fromString(controller.repetitionRule.text),
-            oneDayEvent: true,
+            oneDayEvent: controller.oneDayEvent.value,
             location: controller.location.text.trim(),
             createdAt: created,
             updatedAt: created,
