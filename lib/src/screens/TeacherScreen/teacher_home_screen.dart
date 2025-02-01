@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:id/src/common_widget/bottom_nav_bar.dart';
 import 'package:id/src/common_widget/header.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:id/src/screens/TeacherScreen/widget/class_list_widget.dart';
 import 'package:id/src/screens/TeacherScreen/widget/sub_header.dart';
 
@@ -18,6 +21,8 @@ class TeacherHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthenticationRepository userController = Get.find();
+    User? user = userController.firebaseUser.value;
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -26,7 +31,7 @@ class TeacherHomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Header(),
-              const SubHeader(),
+              SubHeader(),
               Expanded(
                 child: ListView.builder(
                   itemCount: classData.length,
