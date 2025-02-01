@@ -1,6 +1,7 @@
+import 'package:get/get.dart';
 import 'package:id/src/models/repetetion_rule_model.dart';
 
-class ClassModel {
+class ClassModel extends GetxController {
   final String className;
   final String teacherId;
   final List<String>? coTeacherId; // Corrected to Map<String, String>

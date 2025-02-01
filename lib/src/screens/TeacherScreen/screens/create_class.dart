@@ -16,7 +16,17 @@ class CreateClass extends StatelessWidget {
     required this.pageTitle,
   });
   final String pageTitle;
+// List<Appointment> classes = <Appointment>[];
+//     final DateTime today = DateTime.now();
+//     final DateTime startTime = controller.startt;
+//     final DateTime endTime = startTime.add(const Duration(hours: 2));
 
+//     classes.add(Appointment(
+//         startTime: startTime,
+//         endTime: endTime,
+//         subject: "Conference",
+//         color: Colors.blue,
+//         recurrenceRule: 'FREQ=DAILY;COUNT=10'));
   @override
   Widget build(BuildContext context) {
     final controller = ClassController.instance;
@@ -50,9 +60,9 @@ class CreateClass extends StatelessWidget {
                   //Name of the event or class
                   controller: controller.className,
                   decoration: const InputDecoration(
-                    hintText: kNameHint,
-                    border: UnderlineInputBorder(),
-                  ),
+                      hintText: kNameHint,
+                      border: UnderlineInputBorder(),
+                      focusedBorder: UnderlineInputBorder()),
                 ),
                 const SizedBox(
                   height: 8.0,
@@ -61,19 +71,22 @@ class CreateClass extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        const Calendar(), //calander to be selected or to show the dates selected
-                        const OneDayEventCheckBox(), //oncheck event to be checked
+                        const Calendar(
+                            // datasource: controller
+                            //     .dataSourse
+                            ), //calander to be selected or to show the dates selected
+                        OneDayEventCheckBox(controller: controller),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             DatePicker(
                               //start date selected
-                              kDateSelected: controller.startDateTime,
+                              dateSelected: controller.startDateTime,
                               kType: kFrom,
                             ),
                             DatePicker(
                               //end date selected
-                              kDateSelected: controller.endDateTime,
+                              dateSelected: controller.endDateTime,
                               kType: kTo,
                             ),
                           ],
@@ -101,8 +114,7 @@ class CreateClass extends StatelessWidget {
 List<Appointment> getAppointments() {
   List<Appointment> classes = <Appointment>[];
   final DateTime today = DateTime.now();
-  final DateTime startTime =
-      DateTime(today.year, today.month, today.day, 09, 00, 00);
+  final DateTime startTime = DateTime.now();
   final DateTime endTime = startTime.add(const Duration(hours: 2));
 
   classes.add(Appointment(
