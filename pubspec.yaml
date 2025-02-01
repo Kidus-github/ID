@@ -24,7 +24,7 @@ dependencies:
   firebase_auth: ^5.4.0
   firebase_storage: ^12.4.0
   cloud_firestore: ^5.6.1
-  board_datetime_picker: ^2.4.0
+  bottom_picker: ^2.10.1
 
 dev_dependencies:
   flutter_test:

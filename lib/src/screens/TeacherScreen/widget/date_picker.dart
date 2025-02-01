@@ -1,45 +1,40 @@
-import 'package:board_datetime_picker/board_datetime_picker.dart';
+import 'package:bottom_picker/bottom_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class DatePicker extends StatefulWidget {
+class DatePicker extends StatelessWidget {
   DatePicker({
     super.key,
     required this.kType,
-    required this.kDateSelected,
+    required this.dateSelected,
   });
   final String kType;
-  final BoardDateTimeController kDateSelected;
+  final Rx<DateTime> dateSelected;
 
-  @override
-  State<DatePicker> createState() => _DatePickerState();
-}
-
-class _DatePickerState extends State<DatePicker> {
   DateTime _selectDateTime = DateTime.now();
 
   void _chooseDateTime(BuildContext context) {
-    showBoardDateTimePicker(
-      onChanged: (val) {
-        setState(() {
-          _selectDateTime = val;
-          // kDateSelected = val;
-        });
-      },
-      controller: widget.kDateSelected,
-      context: context,
-      pickerType: DateTimePickerType.datetime,
-      initialDate: _selectDateTime,
-      options: const BoardDateTimeOptions(
-        languages: BoardPickerLanguages(
-            today: 'Today', tomorrow: 'Tommorow', now: 'Now'),
-        startDayOfWeek: DateTime.monday,
-        pickerFormat: PickerFormat.dmy,
-        activeColor: Colors.black87,
-        backgroundDecoration: BoxDecoration(
-          color: Colors.white,
+    BottomPicker.dateTime(
+      pickerTitle: const Text(
+        'Set the event exact time and date',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+          color: Colors.black,
         ),
       ),
-    );
+      onSubmit: (date) {
+        dateSelected.value = date;
+      },
+      onCloseButtonPressed: () {
+        print('Picker closed');
+      },
+      initialDateTime: dateSelected.value,
+      gradientColors: [
+        Color(0xfffdcbf1),
+        Color(0xffe6dee9),
+      ],
+    ).show(context);
   }
 
   @override
@@ -48,7 +43,7 @@ class _DatePickerState extends State<DatePicker> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          widget.kType,
+          kType,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(
@@ -67,15 +62,18 @@ class _DatePickerState extends State<DatePicker> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Text(
-                      '${_selectDateTime.day},${_selectDateTime.month},${_selectDateTime.year}'),
-                  const SizedBox(
-                    width: 6,
-                  ),
-                  Text('${_selectDateTime.hour}:${_selectDateTime.minute} AM'),
-                ],
+              Obx(
+                () => Row(
+                  children: [
+                    Text(
+                        '${dateSelected.value.day},${dateSelected.value.month},${dateSelected.value.year}'),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Text(
+                        '${dateSelected.value.hour}:${dateSelected.value.minute} AM'),
+                  ],
+                ),
               ),
               // const SizedBox(
               //   width: 4.0,

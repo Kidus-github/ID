@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  board_datetime_picker:
-    dependency: "direct main"
-    description:
-      name: board_datetime_picker
-      sha256: "0eb27d91ac3cb90a4a0acc1c2d73dd09e1a3c817ca93e08f298d95a30c3ec742"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -41,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  bottom_picker:
+    dependency: "direct main"
+    description:
+      name: bottom_picker
+      sha256: "8ede549685825df389135bebc7984416ed95f24d4f19631d21ad25c9c23db482"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.10.1"
   characters:
     dependency: transitive
     description:
