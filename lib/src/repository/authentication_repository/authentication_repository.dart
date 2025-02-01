@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/exceptions/signup_email_pasword_failure.dart';
 import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
+import 'package:id/src/screens/SignUpScreen/sign_up_screen.dart';
 import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
 import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
 
@@ -46,7 +47,7 @@ class AuthenticationRepository extends GetxController {
       if (user != null) {
         Get.offAll(() => const SignInScreen());
       } else {
-        Get.offAll(() => const TeacherHomeScreen());
+        Get.offAll(() => const SignUpScreen());
       }
       // Navigate based on the presence of a user
       // if (user != null) {
@@ -76,9 +77,11 @@ class AuthenticationRepository extends GetxController {
   Future<void> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null
-          ? Get.offAll(() => TeacherHomeScreen())
-          : Get.offAll(() => WelcomeScreen());
+      if (firebaseUser.value != null) {
+        Get.offAll(() => const TeacherHomeScreen());
+      } else {
+        Get.offAll(() => const WelcomeScreen());
+      }
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPaswordFailure.code(e.code);
       print('FIREBASE AUTH EXEPTION - ${ex.message}');
