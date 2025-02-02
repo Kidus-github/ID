@@ -69,6 +69,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '394722127903',
     projectId: 'id-project-hilcoe',
     storageBucket: 'id-project-hilcoe.firebasestorage.app',
+    androidClientId: '394722127903-fnr0b7bd6v5dbhpgmqecrna2ahm086hl.apps.googleusercontent.com',
+    iosClientId: '394722127903-ejb11ljmtjdi2kpu98510fe7bpjo8ksl.apps.googleusercontent.com',
     iosBundleId: 'com.example.id',
   );
+
 }
