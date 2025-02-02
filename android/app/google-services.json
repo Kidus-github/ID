@@ -12,7 +12,20 @@
           "package_name": "com.techhill.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "394722127903-fnr0b7bd6v5dbhpgmqecrna2ahm086hl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techhill.app",
+            "certificate_hash": "0600bc58713bdc25a30ca1a90d06ae18329c4a95"
+          }
+        },
+        {
+          "client_id": "394722127903-8bk3o8q3cmg0f6ojtb6f4anu13si3pp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBfcP24zgE2uozePYeaV-Lvo9mHW7B56Mg"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394722127903-8bk3o8q3cmg0f6ojtb6f4anu13si3pp1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394722127903-ejb11ljmtjdi2kpu98510fe7bpjo8ksl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.id"
+              }
+            }
+          ]
         }
       }
     }

@@ -46,3 +46,8 @@ android {
 flutter {
     source = "../.."
 }
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'  // For AppCompat themes
+    implementation 'com.google.android.material:material:1.9.0'  // For MaterialComponents themes
+    implementation "androidx.core:core-ktx:1.10.1"
+}

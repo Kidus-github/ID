@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>         <!-- Primary color -->
+    <color name="colorPrimaryDark">#3700B3</color>     <!-- Darker version for status bar -->
+    <color name="colorAccent">#03DAC5</color>         <!-- Accent color -->
+</resources>
