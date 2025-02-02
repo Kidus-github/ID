@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:id/firebase_options.dart';
 import 'package:id/src/controllers/class_controller.dart';
 import 'package:id/src/controllers/password_controller.dart';
@@ -14,21 +15,31 @@ import 'package:id/src/screens/SplashScreen/splash_screen.dart';
 import 'package:id/src/utils/theme/theme.dart';
 
 void main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); // Ensure Flutter bindings are initialized first.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // FlutterNativeSplash.preserve(
+  //     widgetsBinding:
+  //         widgetsBinding); // Keep splash until initialization is done
+
+  await GetStorage.init(); // Initialize GetStorage for local storage
 
   // Initialize Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // Register the controllers and repositories after Firebase is initialized
+  // Register controllers with GetX
   Get.put(AuthenticationRepository());
   Get.put(UserRepository());
   Get.put(SignUpController());
   Get.put(SignInController());
   Get.put(PasswordController());
   Get.put(ClassController());
+
+  // await Future.delayed(const Duration(seconds: 3));
+
+  // FlutterNativeSplash.remove(); //
+
   runApp(const MyApp());
 }
 
