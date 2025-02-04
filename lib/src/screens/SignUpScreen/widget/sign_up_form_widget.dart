@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/controllers/signup_controller.dart';
 import 'package:id/src/models/user_model.dart';
+import 'package:id/src/utils/validators/validation.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
@@ -13,17 +15,19 @@ class SignUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final controller = SignUpController.instance;
-    final _formKey = GlobalKey<FormState>();
+
     return Column(
       children: [
         Container(
           margin: const EdgeInsets.symmetric(vertical: 40.0),
           child: Form(
-            key: _formKey,
+            key: controller.formKey,
             child: Column(
               children: [
                 TextFormField(
                   controller: controller.firstName,
+                  validator: (value) =>
+                      Validator.validateEmptyText('First Name', value),
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person_outline_outlined),
                     labelText: kSignUpText4,
@@ -36,6 +40,8 @@ class SignUpFormWidget extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: controller.middleName,
+                  validator: (value) =>
+                      Validator.validateEmptyText('Middle Name', value),
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person_outline_outlined),
                     labelText: kSignUpText5,
@@ -48,6 +54,7 @@ class SignUpFormWidget extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: controller.phoneNo,
+                  validator: (value) => Validator.validatePhoneNumber(value),
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.hail_sharp),
                     labelText: kSignUpText6,
@@ -60,6 +67,7 @@ class SignUpFormWidget extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: controller.email,
+                  validator: (value) => Validator.validateEmail(value),
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.email_outlined),
                     labelText: kSignUpText7,
@@ -70,16 +78,25 @@ class SignUpFormWidget extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                TextFormField(
-                  controller: controller.password,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(Icons.fingerprint),
+                Obx(
+                  () => TextFormField(
+                    controller: controller.password,
+                    validator: (value) => Validator.validatePassword(value),
+                    obscureText: controller.hidepassword.value,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.fingerprint),
                       labelText: kSignUpText8,
                       hintText: kSignUpText8,
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       suffixIcon: IconButton(
-                          onPressed: null, icon: Icon(Icons.remove_red_eye))),
-                ),
+                          onPressed: () => controller.hidepassword.value =
+                              !controller.hidepassword.value,
+                          icon: Icon(controller.hidepassword.value
+                              ? Icons.visibility_off
+                              : Icons.remove_red_eye)),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -89,28 +106,31 @@ class SignUpFormWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            if (_formKey.currentState!.validate()) {
-              SignUpController.instance.registerUser(
-                  context,
-                  controller.email.text.trim(),
-                  controller.password.text.trim());
-              SignUpController.instance.createUser(UserModel(
-                  createdAt: DateTime.now(),
-                  firstName: controller.firstName.text.trim(),
-                  email: controller.email.text.trim(),
-                  middleName: controller.middleName.text.trim(),
-                  nfcTagId: "",
-                  phoneNo: controller.phoneNo.text.trim(),
-                  updatedAt: DateTime.now(),
-                  role: null));
-            }
-
-            controller.email.clear();
-            controller.firstName.clear();
-            controller.middleName.clear();
-            controller.phoneNo.clear();
-            controller.password.clear();
+            controller.signup();
           },
+          //   if (controller.formKey.currentState!.validate()) {
+          //     SignUpController.instance.registerUser(
+          //         context,
+          //         controller.email.text.trim(),
+          //         controller.password.text.trim());
+          //     SignUpController.instance.createUser(UserModel(
+          //         createdAt: DateTime.now(),
+          //         firstName: controller.firstName.text.trim(),
+          //         email: controller.email.text.trim(),
+          //         middleName: controller.middleName.text.trim(),
+          //         nfcTagId: "",
+          //         phoneNo: controller.phoneNo.text.trim(),
+          //         updatedAt: DateTime.now(),
+          //         role: null));
+          //   }
+
+          //   controller.email.clear();
+          //   controller.firstName.clear();
+          //   controller.middleName.clear();
+          //   controller.phoneNo.clear();
+          //   controller.password.clear();
+          // },
+
           child: Center(
             child: Container(
               width: size.width * 0.7,

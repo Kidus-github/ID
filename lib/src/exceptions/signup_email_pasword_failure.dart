@@ -9,7 +9,6 @@ class SignUpWithEmailAndPaswordFailure {
       case "weak-password":
         return const SignUpWithEmailAndPaswordFailure(
             'Please enter strong password');
-
       case "invalid-email":
         return const SignUpWithEmailAndPaswordFailure(
             'Email is not valid or badly formated ');
