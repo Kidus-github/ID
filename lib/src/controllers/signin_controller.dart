@@ -6,10 +6,12 @@ class SignInController extends GetxController {
   static SignInController get instance => Get.find();
   final email = TextEditingController();
   final password = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final isPasswordHidden = true.obs;
 
-  void loginUser(String email, String password) {
+  void loginUser() {
     AuthenticationRepository.instance
-        .loginWithEmailAndPassword(email, password);
+        .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
   }
 
   @override

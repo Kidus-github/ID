@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/text_string.dart';
-import 'package:id/src/controllers/password_controller.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/screens/ForgetPasswordScreen/forget_password_screen/forget_password_model_bottom_sheet.dart';
 
@@ -15,15 +15,13 @@ class SignInFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PasswordController passwordController = PasswordController.instance;
     final controller = SignInController.instance;
-    final _formKey = GlobalKey<FormState>();
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 40.0),
       child: Column(
         children: [
           Form(
-            key: _formKey,
+            key: controller.formKey,
             child: Column(
               children: [
                 TextFormField(
@@ -38,20 +36,22 @@ class SignInFormWidget extends StatelessWidget {
                 const SizedBox(
                   height: 20.0,
                 ),
-                TextFormField(
-                  controller: controller.password,
-                  obscureText: passwordController.isPasswordHidden.value,
-                  decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.fingerprint),
-                      labelText: kSignInText5,
-                      hintText: kSignInText5,
-                      border: const OutlineInputBorder(),
-                      suffixIcon: IconButton(
-                          onPressed:
-                              passwordController.togglePasswordVisibility,
-                          icon: Icon(passwordController.isPasswordHidden.value
-                              ? Icons.visibility_off
-                              : Icons.remove_red_eye))),
+                Obx(
+                  () => TextFormField(
+                    controller: controller.password,
+                    obscureText: controller.isPasswordHidden.value,
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.fingerprint),
+                        labelText: kSignInText5,
+                        hintText: kSignInText5,
+                        border: const OutlineInputBorder(),
+                        suffixIcon: IconButton(
+                            onPressed: () => controller.isPasswordHidden.value =
+                                !controller.isPasswordHidden.value,
+                            icon: Icon(controller.isPasswordHidden.value
+                                ? Icons.visibility_off
+                                : Icons.remove_red_eye))),
+                  ),
                 ),
               ],
             ),
@@ -76,11 +76,7 @@ class SignInFormWidget extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              if (_formKey.currentState!.validate()) {
-                SignInController.instance.loginUser(
-                    controller.email.text.trim(),
-                    controller.password.text.trim());
-              }
+              controller.loginUser();
             },
             child: Center(
               child: Container(

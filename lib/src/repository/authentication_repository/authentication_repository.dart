@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:id/src/exceptions/signup_email_pasword_failure.dart';
+import 'package:id/src/screens/OnBoardingScreen/on_boarding_screen.dart';
 import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
 import 'package:id/src/screens/SignUpScreen/sign_up_screen.dart';
 import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
@@ -12,6 +14,7 @@ class AuthenticationRepository extends GetxController {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   late Rx<User?> firebaseUser;
+  final deviceStorage = GetStorage();
   @override
   void onReady() {
     //added some delay for it to get started from where it stoped
@@ -19,6 +22,13 @@ class AuthenticationRepository extends GetxController {
     firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setInitialScreen);
+  }
+
+  screenRedirect() async {
+    deviceStorage.writeIfNull('IsFirstTime', true);
+    deviceStorage.read('IsFirstTime') != true
+        ? Get.offAll(() => const SignInScreen())
+        : Get.offAll(() => const OnBoardingScreen());
   }
 
   _setInitialScreen(User? user) {
@@ -31,46 +41,20 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  Future<void> createUserWithEmailAndPassword(
-      BuildContext context, String email, String password) async {
+  Future<UserCredential> createUserWithEmailAndPassword(
+      String email, String password) async {
+    print('createing user 101');
     try {
-      // Attempt to create the user
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
+      return await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-
-      // Fetch the current user after the account is created
-      final user = FirebaseAuth.instance.currentUser;
-      print('User created: ${user?.uid}'); // Log the user ID
-      if (user != null) {
-        Get.offAll(() => const SignInScreen());
-      } else {
-        Get.offAll(() => const SignUpScreen());
-      }
-      // Navigate based on the presence of a user
-      // if (user != null) {
-      //   Navigator.pushReplacement(
-      //     context,
-      //     MaterialPageRoute(builder: (context) => const TeacherHomeScreen()),
-      //   );
-      // } else {
-      //   Navigator.pushReplacement(
-      //     context,
-      //     MaterialPageRoute(builder: (context) => const SignInScreen()),
-      //   );
-      // }
     } on FirebaseAuthException catch (e) {
-      // Handle Firebase-specific exceptions
-      final ex = SignUpWithEmailAndPaswordFailure.code(e.code);
-      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
-      throw ex;
+      throw SignUpWithEmailAndPaswordFailure.code(e.code).message;
     } catch (e) {
-      // Handle unexpected exceptions
-      print('UNEXPECTED EXCEPTION - $e');
       throw SignUpWithEmailAndPaswordFailure(
-          'An unexpected error occurred: ${e.toString()}');
+              'An unexpected error occurred: ${e.toString()}')
+          .message;
     }
   }
 
