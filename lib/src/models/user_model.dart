@@ -1,12 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class UserModel {
-  final String? id;
+  final String id;
   final String firstName;
   final String middleName;
   final String email;
-
   final String phoneNo;
   final String nfcTagId;
-  final Role? role;
+  final String? profilePic;
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -18,19 +19,35 @@ class UserModel {
       required this.nfcTagId,
       required this.phoneNo,
       required this.updatedAt,
-      this.role,
-      this.id});
+      required this.id,
+      this.profilePic});
 
   toJson() => {
+        "id": id,
         "FirstName": firstName,
         "MiddleName": middleName,
         "Email": email,
         "NfcTagId": nfcTagId,
         "PhoneNumber": phoneNo,
-        "Role": role,
         "UpdateAt": updatedAt,
-        "CreatedAt": createdAt
+        "CreatedAt": createdAt,
+        "ProfilePic": profilePic,
       };
-}
 
-class Role {}
+  // factory UserModel.fromSnapshot(
+  //     DocumentSnapshot<Map<String, dynamic>> document) {
+  //   if (document.data() != null) {
+  //     final data = document.data()!;
+  //     return UserModel(
+  //         createdAt: data['createdAt'] ?? '',
+  //         firstName: data['firstName'] ?? ' ',
+  //         email: data['email'] ?? '',
+  //         middleName: data['middleName'] ?? '',
+  //         nfcTagId: data['nfcTagId'] ?? '',
+  //         phoneNo: data['phoneNo'] ?? '',
+  //         updatedAt: data['pdatedAt'] ?? '',
+  //         id: document.id);
+  //   }
+  // }
+  // );
+}
