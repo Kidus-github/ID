@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:id/src/constants/colors.dart';
 import 'package:id/src/controllers/on_broarding_controller.dart';
+import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
 import 'package:id/src/screens/WelcomeScreen/welcome_screen.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -97,9 +99,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     if (nextPage < obController.pages.length) {
       controller.animateToPage(page: nextPage);
     } else {
+      final getStorage = GetStorage();
+      getStorage.write('IsFirstTime', false);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => const SignInScreen()),
       );
     }
   }
@@ -107,7 +111,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   skip() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+      MaterialPageRoute(builder: (context) => const SignInScreen()),
     );
   }
 
