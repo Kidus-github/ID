@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:id/firebase_options.dart';
 import 'package:id/src/controllers/class_controller.dart';
-import 'package:id/src/controllers/password_controller.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/controllers/signup_controller.dart';
 import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:id/src/repository/user_repository/user_repository.dart';
 
 import 'package:id/src/screens/SplashScreen/splash_screen.dart';
+import 'package:id/src/utils/network_manager/network_manager.dart';
 
 import 'package:id/src/utils/theme/theme.dart';
 
@@ -33,8 +33,8 @@ void main() async {
   Get.put(UserRepository());
   Get.put(SignUpController());
   Get.put(SignInController());
-  Get.put(PasswordController());
   Get.put(ClassController());
+  Get.put(NetworkManager());
 
   // await Future.delayed(const Duration(seconds: 3));
 
