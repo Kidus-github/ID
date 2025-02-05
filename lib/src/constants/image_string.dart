@@ -40,3 +40,10 @@ const String kNotificationLight =
 
 const String kSettingDark = "assets/images/bottom_nav_bar_images/gear.png";
 const String kSettingLight = "assets/images/bottom_nav_bar_images/gear.png";
+const String ksuccessfullyRegisterAnimation =
+    "assets/images/registration_images/RegisterAnimation.json";
+const String kstaticSuccessIllustration =
+    "assets/images/registration_images/SuccessIllustration.json";
+const String kLoader = "assets/animations/loading.json";
+const String kDeliveredEmailIllustration =
+    "assets/images/registration_images/delivered_email.png";

@@ -100,3 +100,16 @@ const String kLocation = "Location";
 //--Edit class
 const String kEditPageTitle = "Edit";
 const String kSearch = "Search";
+
+//Email confirmation
+
+const String kConfirmedEmail = "Verify your email address!";
+const String kConfirmEmailSubTitle =
+    "Congratulations! Your Account Awaits Verify Your Email to Start Managing Attendance and Experiense a Revolutional Attendance Tracking";
+const String kContinue = "Continue";
+const String kTitleEmailSuccess = "Email Successfully";
+const String kSubTitleEmailSuccess = "Email Successfuly sent and recived";
+const String kYourAccountCreatedTitle = "Your account successfully created!";
+const String kYourAccountCreatedSubTitle =
+    "Welcome to your Ultimate Attendance Management: Your Account is created, Unleash the Joy of Sealess Attendance Tracking";
+const String kResendEmail = "Resend Email";
