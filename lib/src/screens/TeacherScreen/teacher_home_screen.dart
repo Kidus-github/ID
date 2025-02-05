@@ -21,8 +21,8 @@ class TeacherHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthenticationRepository userController = Get.find();
-    User? user = userController.firebaseUser.value;
+    // final AuthenticationRepository userController = Get.find();
+    // User? user = userController.firebaseUser.value;
     return SafeArea(
       child: Scaffold(
         body: Padding(
