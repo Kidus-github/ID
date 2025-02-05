@@ -9,6 +9,7 @@ class UserRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   createUser(UserModel user) async {
+    print('I was here for database');
     await _db
         .collection("User")
         .doc(user.id)
