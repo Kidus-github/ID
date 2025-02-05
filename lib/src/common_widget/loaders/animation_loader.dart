@@ -39,9 +39,9 @@ class AnimationLoaderWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context)
                     .textTheme
-                    .bodyMedium
+                    .bodyLarge
                     ?.apply(color: kDarkColor) ??
-                TextStyle(color: kDarkColor, fontSize: 14),
+                const TextStyle(color: kDarkColor, fontSize: 20),
           ),
           const SizedBox(height: 8.0),
           showAction

@@ -63,6 +63,10 @@ flutter:
     - assets/logo/logos.png
     - assets/images/bottom_nav_bar_images/
     - assets/animations/loading.json
+    - assets/images/registration_images/SuccessIllustration.json
+    - assets/images/registration_images/RegisterAnimation.json
+    - assets/images/registration_images/delivered_email_illustration.jpg
+    - assets/images/registration_images/delivered_email.png
 
 flutter_icons:
   android: true
