@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/screens/SignInScreen/widget/header.dart';
 import 'package:id/src/screens/SignInScreen/widget/sign_in_form_widget.dart';
 
-class SignInScreen extends StatefulWidget {
+class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
-}
-
-class _SignInScreenState extends State<SignInScreen> {
-  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final controller = Get.put(SignInController());
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -48,7 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => controller.googleSignIn(),
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     decoration: BoxDecoration(

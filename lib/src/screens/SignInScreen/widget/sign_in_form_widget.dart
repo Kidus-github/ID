@@ -4,6 +4,7 @@ import 'package:id/src/constants/colors.dart';
 import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/screens/ForgetPasswordScreen/forget_password_screen/forget_password_model_bottom_sheet.dart';
+import 'package:id/src/utils/validators/validation.dart';
 
 class SignInFormWidget extends StatelessWidget {
   const SignInFormWidget({
@@ -26,6 +27,7 @@ class SignInFormWidget extends StatelessWidget {
               children: [
                 TextFormField(
                   controller: controller.email,
+                  validator: (value) => Validator.validateEmail(value),
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person_outline_outlined),
                     labelText: kSignInText4,
@@ -39,6 +41,8 @@ class SignInFormWidget extends StatelessWidget {
                 Obx(
                   () => TextFormField(
                     controller: controller.password,
+                    validator: (value) =>
+                        Validator.validateEmptyText('Password', value),
                     obscureText: controller.isPasswordHidden.value,
                     decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.fingerprint),
