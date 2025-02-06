@@ -26,10 +26,10 @@ void main() async {
   // Initialize Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
+  ).then((FirebaseApp value) => Get.put(AuthenticationRepository()));
 
   // Register controllers with GetX
-  Get.put(AuthenticationRepository());
+  // Get.put(AuthenticationRepository());
   Get.put(UserRepository());
   Get.put(SignUpController());
   Get.put(SignInController());

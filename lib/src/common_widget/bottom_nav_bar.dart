@@ -67,7 +67,7 @@ class BottomNavBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              AuthenticationRepository.instance.logout();
+              // AuthenticationRepository.instance.logout();
             },
             child: Container(
               padding: const EdgeInsets.all(10),
