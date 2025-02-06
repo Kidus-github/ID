@@ -30,7 +30,7 @@ class AnimationLoaderWidget extends StatelessWidget {
             animation,
             width: MediaQuery.of(context).size.width * 0.8,
             errorBuilder: (context, error, stackTrace) {
-              return Icon(Icons.error, color: Colors.red, size: 50);
+              return const Icon(Icons.error, color: Colors.red, size: 50);
             },
           ),
           const SizedBox(height: 8.0),

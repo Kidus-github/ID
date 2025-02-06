@@ -20,8 +20,9 @@ class FullScreenLoader {
     showDialog(
       context: Get.overlayContext!,
       barrierDismissible: false,
-      builder: (_) => WillPopScope(
-        onWillPop: () async => false,
+      builder: (_) => PopScope(
+        // onWillPop: () async => false,
+        canPop: false,
         child: Container(
           color: Colors.white,
           child: Center(
