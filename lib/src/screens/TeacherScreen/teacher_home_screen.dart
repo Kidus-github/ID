@@ -31,7 +31,7 @@ class TeacherHomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Header(),
-              SubHeader(),
+              const SubHeader(),
               Expanded(
                 child: ListView.builder(
                   itemCount: classData.length,
@@ -46,7 +46,7 @@ class TeacherHomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const BottomNavBar(),
+        // bottomNavigationBar: const BottomNavBar(),
       ),
     );
   }
