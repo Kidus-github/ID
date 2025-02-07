@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:id/src/common_widget/bottom_nav_bar.dart';
 import 'package:id/src/exceptions/firebase_auth_exception.dart';
 import 'package:id/src/exceptions/firebase_exceptions.dart';
 import 'package:id/src/exceptions/format_exception.dart';
@@ -38,7 +39,7 @@ class AuthenticationRepository extends GetxController {
     // print(user.uid);
     if (user != null) {
       if (user.emailVerified) {
-        Get.offAll(() => const TeacherHomeScreen());
+        Get.offAll(() => const BottomNavBar());
       } else {
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
