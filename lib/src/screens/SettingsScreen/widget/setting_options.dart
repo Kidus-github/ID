@@ -19,6 +19,7 @@ class SettingOptions extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
             decoration:
                 BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
             child: Row(
