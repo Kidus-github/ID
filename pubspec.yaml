@@ -34,6 +34,7 @@ dependencies:
   bottom_picker: ^2.10.1
   flutter_otp_text_field: ^1.4.0+2
   syncfusion_flutter_calendar: ^28.1.36
+  shimmer: ^3.0.0
 
   # State Management
   get_storage: ^2.1.1
@@ -64,6 +65,7 @@ flutter:
     - assets/logo/logos.png
     - assets/images/bottom_nav_bar_images/
     - assets/images/settings_images/
+    - assets/images/settings_images/no-profile.png
     - assets/animations/loading.json
     - assets/images/registration_images/SuccessIllustration.json
     - assets/images/registration_images/RegisterAnimation.json

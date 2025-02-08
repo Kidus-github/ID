@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:id/firebase_options.dart';
+
 import 'package:id/src/controllers/class_controller.dart';
+import 'package:id/src/controllers/navigation_controller.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/controllers/signup_controller.dart';
+import 'package:id/src/controllers/user_controller.dart';
 import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:id/src/repository/user_repository/user_repository.dart';
 
@@ -35,6 +38,8 @@ void main() async {
   Get.put(SignInController());
   Get.put(ClassController());
   Get.put(NetworkManager());
+  Get.put(NavigationController());
+  Get.put(UserController());
 
   // await Future.delayed(const Duration(seconds: 3));
 
