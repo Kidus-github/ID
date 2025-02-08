@@ -63,6 +63,7 @@ flutter:
     - assets/logo/logo.png
     - assets/logo/logos.png
     - assets/images/bottom_nav_bar_images/
+    - assets/images/settings_images/
     - assets/animations/loading.json
     - assets/images/registration_images/SuccessIllustration.json
     - assets/images/registration_images/RegisterAnimation.json

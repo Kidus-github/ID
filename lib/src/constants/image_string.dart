@@ -28,7 +28,7 @@ const String kPencil = "assets/images/teacher_screen_images/pencil.png";
 
 //---Bottom Nav Bar Images
 const String kHomeLight = "assets/images/bottom_nav_bar_images/homeLight.png";
-const String kHome = "assets/images/bottom_nav_bar_images/home.png";
+const String kHomeDark = "assets/images/bottom_nav_bar_images/home.png";
 const String kCalanderDark = "assets/images/bottom_nav_bar_images/calendar.png";
 const String kCalanderLight =
     "assets/images/bottom_nav_bar_images/calendarLight.png";
@@ -39,7 +39,8 @@ const String kNotificationLight =
     "assets/images/bottom_nav_bar_images/notificationLight.png";
 
 const String kSettingDark = "assets/images/bottom_nav_bar_images/gear.png";
-const String kSettingLight = "assets/images/bottom_nav_bar_images/gear.png";
+const String kSettingLight =
+    "assets/images/bottom_nav_bar_images/gearlight.png";
 const String ksuccessfullyRegisterAnimation =
     "assets/images/registration_images/RegisterAnimation.json";
 const String kstaticSuccessIllustration =
@@ -47,3 +48,6 @@ const String kstaticSuccessIllustration =
 const String kLoader = "assets/animations/loading.json";
 const String kDeliveredEmailIllustration =
     "assets/images/registration_images/delivered_email.png";
+
+const String kNoProfilepic = "assets/images/settings_images/no-profile.png";
+const String kedit = "assets/images/settings_images/edit.png";
