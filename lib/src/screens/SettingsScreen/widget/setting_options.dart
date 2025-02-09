@@ -27,14 +27,24 @@ class SettingOptions extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(prefixicon),
+                    Icon(
+                      prefixicon,
+                      size: 32,
+                    ),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    Text(title),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w400, fontSize: 18.0),
+                    ),
                   ],
                 ),
-                const Icon(Icons.navigate_next_outlined)
+                const Icon(
+                  Icons.navigate_next_outlined,
+                  size: 32,
+                )
               ],
             ),
           ),

@@ -5,7 +5,9 @@ import 'package:id/src/common_widget/shimmer.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/controllers/user_controller.dart';
+import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:id/src/screens/SettingsScreen/widget/setting_options.dart';
+import 'package:id/src/screens/SignInScreen/sign_in_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -15,11 +17,13 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final controller = Get.put(UserController());
+    controller.onInit();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Container(
               margin: const EdgeInsets.only(top: 30.0),
               child: const Text(
@@ -103,6 +107,7 @@ class SettingScreen extends StatelessWidget {
                 kSettingsubtitle1,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
               ),
+              const SizedBox(height: 30.0),
               SettingOptions(
                 title: kNotificationTitle,
                 onPress: () {},
@@ -127,6 +132,24 @@ class SettingScreen extends StatelessWidget {
                 title: kAboutTitle,
                 onPress: () {},
                 prefixicon: Icons.question_mark_rounded,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: TextButton(
+                    onPressed: () async {
+                      await AuthenticationRepository.instance.logout();
+                      Get.offAll(() =>
+                          const SignInScreen()); // Navigate to login screen after logout
+                    },
+                    child: const Text(
+                      "Log out",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.red, fontSize: 18),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
