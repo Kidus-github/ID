@@ -27,7 +27,7 @@ class AttendanceList extends StatelessWidget {
             const AttendeList(),
           ]),
         ),
-        bottomNavigationBar: const BottomNavBar(),
+        // bottomNavigationBar: const BottomNavBar(),
       ),
     );
   }
