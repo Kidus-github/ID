@@ -113,7 +113,7 @@ const String kYourAccountCreatedTitle = "Your account successfully created!";
 const String kYourAccountCreatedSubTitle =
     "Welcome to your Ultimate Attendance Management: Your Account is created, Unleash the Joy of Sealess Attendance Tracking";
 const String kResendEmail = "Resend Email";
-const String kSettingsTitle = 'Account';
+const String kSettingsTitle = 'Settings';
 const String kSettingsubtitle1 = "Account Settings";
 const String kNotificationTitle = 'Notifications';
 const String kAppearanceTitle = 'Apperance';

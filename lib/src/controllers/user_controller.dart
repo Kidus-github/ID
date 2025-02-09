@@ -7,10 +7,12 @@ import '../repository/user_repository/user_repository.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
+
   Rx<UserModel> user = UserModel.empty().obs;
   final userRepository = Get.put(UserRepository());
 
   final profileloading = false.obs;
+
   @override
   void onInit() {
     super.onInit();
