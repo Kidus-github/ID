@@ -57,11 +57,6 @@ class SettingScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Obx(() {
-                          print(
-                              "First Name: ${controller.user.value.firstName}");
-                          print(
-                              "Middle Name: ${controller.user.value.middleName}");
-
                           return controller.profileloading.value ||
                                   controller.user.value.firstName.isEmpty
                               ? ShimmerEffect(
@@ -69,16 +64,15 @@ class SettingScreen extends StatelessWidget {
                                   height: size.height * 0.03)
                               : Text(
                                   '${controller.user.value.firstName} ${controller.user.value.middleName}',
-                                  style: Theme.of(context).textTheme.bodyLarge,
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
                                 );
                         }),
                         const SizedBox(
-                          height: 10,
+                          height: 3,
                         ),
                         Obx(() {
-                          print(
-                              "Email: ${controller.user.value.email.isEmpty}");
-
                           return controller.profileloading.value ||
                                   controller.user.value.email.isEmpty
                               ? ShimmerEffect(

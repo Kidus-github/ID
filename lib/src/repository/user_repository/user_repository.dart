@@ -35,10 +35,7 @@ class UserRepository extends GetxController {
           .collection("User")
           .doc(AuthenticationRepository.instance.authUser?.uid)
           .get();
-      print('This is the value ${documentSnapshot.exists}');
       if (documentSnapshot.exists) {
-        print(
-            'I was here to print this ${UserModel.fromSnapshot(documentSnapshot).toJson()}');
         return UserModel.fromSnapshot(documentSnapshot);
       } else {
         return UserModel.empty();

@@ -16,31 +16,23 @@ class UserController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    print('UserController initialized.');
     fetchUserRecord();
   }
 
   Future<void> fetchUserRecord() async {
     try {
       profileloading.value = true;
-      print('Fetching user record...');
 
       final fetchedUser = await userRepository.fetchUserDetails();
-
-      print('Fetched User: $fetchedUser');
 
       if (fetchedUser != null) {
         this.user(fetchedUser);
         user.value = fetchedUser;
-      } else {
-        print('User data is null');
       }
     } catch (e) {
-      print('Error fetching user: $e');
       user.value = UserModel.empty();
     } finally {
       profileloading.value = false;
-      print('Fetch user record completed.');
     }
   }
 

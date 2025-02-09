@@ -50,19 +50,21 @@ class UserModel {
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
-      print('it was to return ${data['FirstName']} ${data['MiddleName']}');
+
       return UserModel(
-          profilePic: data['ProfilePic'] ?? '',
-          createdAt: data['CreatedAt'] ?? '',
-          firstName: data['FirstName'] ?? ' ',
-          email: data['Email'] ?? '',
-          middleName: data['MiddleName'] ?? '',
-          nfcTagId: data['NfcTagId'] ?? '',
-          phoneNo: data['PhoneNumber'] ?? '',
-          updatedAt: data['UpdateAt'] ?? '',
-          id: document.id);
+        profilePic: data['ProfilePic'] ?? '',
+        createdAt: (data['CreatedAt'] as Timestamp?)?.toDate() ??
+            DateTime.now(), // Convert Timestamp to DateTime
+        firstName: data['FirstName'] ?? ' ',
+        email: data['Email'] ?? '',
+        middleName: data['MiddleName'] ?? '',
+        nfcTagId: data['NfcTagId'] ?? '',
+        phoneNo: data['PhoneNumber'] ?? '',
+        updatedAt: (data['UpdateAt'] as Timestamp?)?.toDate() ??
+            DateTime.now(), // Convert Timestamp to DateTime
+        id: document.id,
+      );
     } else {
-      print('I didn\'t return this');
       return UserModel.empty();
     }
   }
