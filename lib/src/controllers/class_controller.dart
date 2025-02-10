@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:id/src/models/class_model.dart';
 import 'package:id/src/repository/class_repository/class_repository.dart';
 
-class ClassController {
+class ClassController extends GetxController {
   static ClassController get instance => Get.find();
 
   final className = TextEditingController();
