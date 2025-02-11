@@ -21,8 +21,9 @@ class AttendeList extends StatelessWidget {
           itemCount: attendeData.length,
           itemBuilder: (context, index) {
             return Attende(
-                name: attendeData[index]['name'],
-                status: attendeData[index]['status']);
+              name: attendeData[index]['name'],
+              // status: attendeData[index]['status']
+            );
           }),
     );
   }
