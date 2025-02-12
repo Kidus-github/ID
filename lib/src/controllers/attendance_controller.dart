@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class AttendanceController extends GetxController {
-  static AttendanceController get instance => Get.find();
+  // static AttendanceController get instance => Get.find();/
   final isPresent = false.obs;
   // final String? attendanceId;
   // final String classId;
