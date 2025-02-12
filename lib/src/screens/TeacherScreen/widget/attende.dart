@@ -5,11 +5,10 @@ import 'package:id/src/controllers/attendance_controller.dart';
 class Attende extends StatelessWidget {
   const Attende({super.key, required this.name});
   final String name;
-  
 
   @override
   Widget build(BuildContext context) {
-     final controller = AttendanceController.instance;
+    final controller = AttendanceController();
     return Container(
       margin: const EdgeInsets.only(bottom: 20.0),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
@@ -36,25 +35,26 @@ class Attende extends StatelessWidget {
           ),
           Transform.scale(
             scale: 2,
-            child: 
-            Obx(() => Checkbox(
-              value: controller.isPresent.value,
-              onChanged: (val) {
+            child: Obx(
+              () => Checkbox(
+                value: controller.isPresent.value,
+                onChanged: (val) {
                   if (val != null) {
                     controller.isPresent.value =
                         val; // ✅ Updates value reactively
                   }
-                },,
+                },
 
-              activeColor: Colors.white, // Optional: Change the active color
-              checkColor: Colors.black,
-              fillColor: MaterialStateProperty.resolveWith((states) {
-                return Colors.white; // Checked color
-              }),
-            ),
-              side: const BorderSide(
-                color: Colors.black,
-                width: .60,
+                activeColor: Colors.white, // Optional: Change the active color
+                checkColor: Colors.black,
+                fillColor: MaterialStateProperty.resolveWith((states) {
+                  return Colors.white; // Checked color
+                }),
+
+                side: const BorderSide(
+                  color: Colors.black,
+                  width: .60,
+                ),
               ),
             ),
           ),
