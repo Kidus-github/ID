@@ -30,13 +30,12 @@ class CreateClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ClassController.instance;
-    final _formKey = GlobalKey<FormState>();
     return SafeArea(
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Form(
-            key: _formKey,
+            key: controller.formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -94,9 +93,9 @@ class CreateClass extends StatelessWidget {
                         ClassTextFields(
                             controller: controller), //text field datas
                         ClassActionBtn(
-                            pageTitle: pageTitle,
-                            controller: controller,
-                            formKey: _formKey),
+                          pageTitle: pageTitle,
+                          controller: controller,
+                        ),
                       ],
                     ),
                   ),
@@ -105,7 +104,7 @@ class CreateClass extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: const BottomNavBar(),
+        // bottomNavigationBar: const BottomNavBar(),
       ),
     );
   }
