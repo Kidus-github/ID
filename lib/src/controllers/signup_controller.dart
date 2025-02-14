@@ -29,22 +29,22 @@ class SignUpController extends GetxController {
         kLoader,
         showAction: false, // No action button, so no need for actionText
       );
-      print('dialog should be opened');
+      // print('dialog should be opened');
       final isConnected = await NetworkManager.instance.isConnected();
 
       if (!isConnected) {
         FullScreenLoader.stopLoading();
         return;
       }
-      print('pass 1');
+      // print('pass 1');
 
       //Form Validation
       if (!formKey.currentState!.validate()) {
         FullScreenLoader.stopLoading();
-        print('pass 1.1');
+        // print('pass 1.1');
         return;
       }
-      print('about to create a user');
+      // print('about to create a user');
       final userCredential = await AuthenticationRepository.instance
           .createUserWithEmailAndPassword(
               email.text.trim(), password.text.trim());

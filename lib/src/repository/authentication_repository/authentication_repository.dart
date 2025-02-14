@@ -63,7 +63,6 @@ class AuthenticationRepository extends GetxController {
 
   Future<UserCredential> createUserWithEmailAndPassword(
       String email, String password) async {
-    print('createing user 101');
     try {
       return await _auth.createUserWithEmailAndPassword(
         email: email,
