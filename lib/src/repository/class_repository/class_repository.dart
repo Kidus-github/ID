@@ -29,4 +29,26 @@ class ClassRepository extends GetxController {
       throw 'Something went wrong. Please try again';
     }
   }
+
+  Future<List<Map<String, dynamic>>> fetchClassesDetails() async {
+    List<Map<String, dynamic>> templist = [];
+    try {
+      final documentSnapshot = await _db.collection("Class").get();
+
+      documentSnapshot.docs.forEach((element) {
+        templist.add(element.data());
+      });
+      return templist;
+    } on FirebaseAuthExceptions catch (e) {
+      throw FirebaseAuthExceptions(e.code).message;
+    } on FirebaseExceptions catch (e) {
+      throw FirebaseExceptions(e.code).message;
+    } on FormatExceptions catch (_) {
+      throw const FormatExceptions();
+    } on PlatformExceptions catch (e) {
+      throw PlatformExceptions(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    } finally {}
+  }
 }

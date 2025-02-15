@@ -10,6 +10,8 @@ import 'package:id/src/screens/TeacherScreen/widget/class_text_field.dart';
 import 'package:id/src/screens/TeacherScreen/widget/date_picker.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
+import '../../../utils/validators/validation.dart';
+
 class CreateClass extends StatelessWidget {
   const CreateClass({
     super.key,
@@ -55,9 +57,11 @@ class CreateClass extends StatelessWidget {
                 const SizedBox(
                   height: 3.0,
                 ),
-                TextField(
+                TextFormField(
                   //Name of the event or class
                   controller: controller.className,
+                  validator: (value) =>
+                      Validator.validateEmptyText('Class Name', value),
                   decoration: const InputDecoration(
                       hintText: kNameHint,
                       border: UnderlineInputBorder(),
