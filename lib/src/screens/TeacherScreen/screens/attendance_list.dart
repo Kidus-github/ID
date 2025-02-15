@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:id/src/common_widget/bottom_nav_bar.dart';
 import 'package:id/src/common_widget/header.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attendance_title_section.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attende_list.dart';

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/common_widget/bottom_nav_bar.dart';
-import 'package:id/src/controllers/user_controller.dart';
 import 'package:id/src/models/class_model.dart';
 import 'package:id/src/repository/class_repository/class_repository.dart';
-import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
-
 import '../constants/image_string.dart';
 import '../constants/text_string.dart';
 import '../repository/authentication_repository/authentication_repository.dart';
