@@ -8,7 +8,7 @@ class AttendanceList extends StatelessWidget {
   const AttendanceList({super.key, required this.aTitle, required this.aDate});
   final String aTitle;
   final String aDate;
-
+  // attendace list to show the entire list 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
