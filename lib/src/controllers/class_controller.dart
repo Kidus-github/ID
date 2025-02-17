@@ -62,8 +62,7 @@ class ClassController extends GetxController {
       FullScreenLoader.openLoadingDialog(
         "Creating The Class...",
         kLoader,
-        showAction: false, // No action button, so no need for actionText
-      );
+        showAction: false, 
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         FullScreenLoader.stopLoading();
@@ -75,7 +74,6 @@ class ClassController extends GetxController {
         return;
       }
 
-      // ✅ Get the logged-in user
       final user = auth.authUser;
       if (user == null) {
         FullScreenLoader.stopLoading();
