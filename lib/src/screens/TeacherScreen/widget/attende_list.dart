@@ -17,6 +17,7 @@ class AttendeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      //this is to be edited to send the controller or addigional data to be clicked
       child: ListView.builder(
           itemCount: attendeData.length,
           itemBuilder: (context, index) {
