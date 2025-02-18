@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/screens/TeacherScreen/screens/add_attende.dart';
 
 class SearchSection extends StatelessWidget {
-  const SearchSection({super.key});
-
+  const SearchSection({super.key, required this.aTitle});
+  final String aTitle;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,7 +51,15 @@ class SearchSection extends StatelessWidget {
                 icon: const Icon(Icons.filter_alt_outlined,
                     size: 32, color: Colors.black)),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AddAttende(
+                            aClass: aTitle,
+                          )),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size.zero,
                 backgroundColor: Colors.black, // Button color

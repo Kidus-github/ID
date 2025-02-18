@@ -1,4 +1,4 @@
-import 'package:flutter/
+import 'package:flutter/material.dart';
 import 'package:id/src/common_widget/header.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attendance_title_section.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attende_list.dart';
@@ -8,7 +8,7 @@ class AttendanceList extends StatelessWidget {
   const AttendanceList({super.key, required this.aTitle, required this.aDate});
   final String aTitle;
   final String aDate;
-  // attendace list to show the entire list 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,7 +22,9 @@ class AttendanceList extends StatelessWidget {
               attendanceTitle: aTitle,
               attendanceDate: aDate,
             ),
-            const SearchSection(),
+            SearchSection(
+              aTitle: aTitle,
+            ),
             const AttendeList(),
           ]),
         ),
