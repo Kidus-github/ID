@@ -62,7 +62,8 @@ class ClassController extends GetxController {
       FullScreenLoader.openLoadingDialog(
         "Creating The Class...",
         kLoader,
-        showAction: false, 
+        showAction: false, // No action button, so no need for actionText
+      );
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         FullScreenLoader.stopLoading();

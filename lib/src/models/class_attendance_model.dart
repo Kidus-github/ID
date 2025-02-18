@@ -2,7 +2,7 @@ class ClassAttendanceModel {
   final String? attendanceId;
   final String classId;
   final String userId;
-  final DateTime sessionDate;
+  // final DateTime sessionDate;
   final bool isPresent;
   final String markedBy;
   final String markedAt;
@@ -13,7 +13,7 @@ class ClassAttendanceModel {
       required this.isPresent,
       required this.markedAt,
       required this.markedBy,
-      required this.sessionDate,
+      // required this.sessionDate,
       required this.userId});
 
   toJson() {
@@ -23,7 +23,7 @@ class ClassAttendanceModel {
       "IsPresent": isPresent,
       "MarkedAt": markedAt,
       "MarkedBy": markedBy,
-      "SessionDate": sessionDate,
+      // "SessionDate": sessionDate,
       "UserId": userId
     };
   }
