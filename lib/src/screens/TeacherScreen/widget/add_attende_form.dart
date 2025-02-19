@@ -78,34 +78,34 @@ class AddAttendeForm extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                TextFormField(
-                  controller: controller.middleName,
-                  validator: (value) =>
-                      Validator.validateEmptyText('Batch', value),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.school_outlined),
-                    labelText: "Batch",
-                    hintText: "Batch",
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  controller: controller.middleName,
-                  validator: (value) =>
-                      Validator.validateEmptyText('Section', value),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.label_outline),
-                    labelText: "Section",
-                    hintText: "Section",
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
+                // TextFormField(
+                //   controller: controller.middleName,
+                //   validator: (value) =>
+                //       Validator.validateEmptyText('Batch', value),
+                //   decoration: const InputDecoration(
+                //     prefixIcon: Icon(Icons.school_outlined),
+                //     labelText: "Batch",
+                //     hintText: "Batch",
+                //     border: OutlineInputBorder(),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 10.0,
+                // ),
+                // TextFormField(
+                //   controller: controller.middleName,
+                //   validator: (value) =>
+                //       Validator.validateEmptyText('Section', value),
+                //   decoration: const InputDecoration(
+                //     prefixIcon: Icon(Icons.label_outline),
+                //     labelText: "Section",
+                //     hintText: "Section",
+                //     border: OutlineInputBorder(),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 10.0,
+                // ),
 
                 ///
                 ///nfcTag
