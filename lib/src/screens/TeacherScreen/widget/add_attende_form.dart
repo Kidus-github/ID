@@ -103,9 +103,9 @@ class AddAttendeForm extends StatelessWidget {
                 //     border: OutlineInputBorder(),
                 //   ),
                 // ),
-                // const SizedBox(
-                //   height: 10.0,
-                // ),
+                const SizedBox(
+                  height: 10.0,
+                ),
 
                 ///
                 ///nfcTag
