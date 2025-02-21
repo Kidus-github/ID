@@ -17,7 +17,7 @@ class AddAttende extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Header(),
             AttendanceTitleSection(
-              attendanceTitle: "Add Attende",
+              attendanceTitle: "Add Attendee",
               attendanceDate: aClass,
             ),
             const AddAttendeForm()
