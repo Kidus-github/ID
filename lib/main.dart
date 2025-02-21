@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:id/firebase_options.dart';
 import 'package:id/src/controllers/attendance_controller.dart';
+import 'package:id/src/controllers/attende_controller.dart';
 
 import 'package:id/src/controllers/class_controller.dart';
 import 'package:id/src/controllers/navigation_controller.dart';
@@ -42,7 +43,7 @@ void main() async {
   Get.put(NavigationController());
   Get.put(UserController());
   Get.put(AttendanceController());
-
+  Get.put(AttendeController());
   // await Future.delayed(const Duration(seconds: 3));
 
   // FlutterNativeSplash.remove(); //
