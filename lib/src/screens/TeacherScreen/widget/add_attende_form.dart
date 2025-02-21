@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/constants/colors.dart';
-import 'package:id/src/controllers/signup_controller.dart';
 import 'package:id/src/utils/validators/validation.dart';
 
 import '../../../constants/text_string.dart';
+import '../../../controllers/attende_controller.dart';
 
 class AddAttendeForm extends StatelessWidget {
   const AddAttendeForm({super.key});
@@ -11,8 +11,7 @@ class AddAttendeForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final controller = SignUpController.instance;
-    // final controller;
+    final controller = AttendeController.instance;
 
     return Column(
       children: [
@@ -52,7 +51,7 @@ class AddAttendeForm extends StatelessWidget {
                 ),
 
                 TextFormField(
-                  controller: controller.middleName,
+                  controller: controller.nickName,
                   validator: (value) =>
                       Validator.validateEmptyText('Nick Name', value),
                   decoration: const InputDecoration(
@@ -79,7 +78,7 @@ class AddAttendeForm extends StatelessWidget {
                   height: 10.0,
                 ),
                 TextFormField(
-                  controller: controller.middleName,
+                  controller: controller.batchName,
                   validator: (value) =>
                       Validator.validateEmptyText('Batch', value),
                   decoration: const InputDecoration(
@@ -93,7 +92,7 @@ class AddAttendeForm extends StatelessWidget {
                   height: 10.0,
                 ),
                 TextFormField(
-                  controller: controller.middleName,
+                  controller: controller.section,
                   validator: (value) =>
                       Validator.validateEmptyText('Section', value),
                   decoration: const InputDecoration(
@@ -108,21 +107,6 @@ class AddAttendeForm extends StatelessWidget {
                 ),
 
                 ///
-                ///nfcTag
-                ///
-                TextFormField(
-                  controller: controller.email,
-                  validator: (value) => Validator.validateEmail(value),
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.email_outlined),
-                    labelText: kSignUpText7,
-                    hintText: kSignUpText7,
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
               ],
             ),
           ),
@@ -132,7 +116,7 @@ class AddAttendeForm extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            controller.signup();
+            controller.AddAttende();
           },
           child: Center(
             child: Container(
