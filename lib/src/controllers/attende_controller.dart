@@ -65,6 +65,7 @@ class AttendeController extends GetxController {
       print('pass 3');
       print(newAttende.id);
       await AttendanceRepository.instance.createAttede(newAttende);
+      print('pass 56');
       FullScreenLoader.stopLoading();
 
       Loaders.successSnackBar(
