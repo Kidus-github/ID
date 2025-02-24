@@ -23,7 +23,7 @@ class AttendeController extends GetxController {
   final formKey = GlobalKey<FormState>();
   final useRepo = Get.put(UserRepository());
 
-  Future<void> AddAttende() async {
+  Future<void> addAttende() async {
     try {
       FullScreenLoader.openLoadingDialog(
         "Adding attende...",
@@ -64,7 +64,7 @@ class AttendeController extends GetxController {
       );
       print('pass 3');
       print(newAttende.id);
-      await AttendanceRepository.instance.createAttede(newAttende);
+      await AttendeRepository.instance.createAttede(newAttende);
       print('pass 56');
       FullScreenLoader.stopLoading();
 

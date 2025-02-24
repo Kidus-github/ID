@@ -7,8 +7,8 @@ import 'package:id/src/exceptions/format_exception.dart';
 import 'package:id/src/exceptions/platform_exceptions.dart';
 import 'package:id/src/models/attende_model.dart';
 
-class AttendanceRepository extends GetxController {
-  static AttendanceRepository get instance => Get.find();
+class AttendeRepository extends GetxController {
+  static AttendeRepository get instance => Get.find();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User? get authUser => _auth.currentUser;
@@ -16,6 +16,7 @@ class AttendanceRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   Future<void> createAttede(AttendeModel attende) async {
+    print("nothing");
     try {
       print("something");
       await _db.collection("Attende").doc(attende.id).set(attende.toJson());
