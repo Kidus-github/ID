@@ -11,6 +11,7 @@ import 'package:id/src/controllers/navigation_controller.dart';
 import 'package:id/src/controllers/signin_controller.dart';
 import 'package:id/src/controllers/signup_controller.dart';
 import 'package:id/src/controllers/user_controller.dart';
+import 'package:id/src/repository/attendance_repository/attendance_repository.dart';
 import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:id/src/repository/user_repository/user_repository.dart';
 
@@ -44,6 +45,7 @@ void main() async {
   Get.put(UserController());
   Get.put(AttendanceController());
   Get.put(AttendeController());
+  // Get.put(AttendeRepository());
   // await Future.delayed(const Duration(seconds: 3));
 
   // FlutterNativeSplash.remove(); //

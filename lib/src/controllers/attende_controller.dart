@@ -62,24 +62,21 @@ class AttendeController extends GetxController {
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       );
-      print('pass 3');
+
       print(newAttende.id);
       await AttendeRepository.instance.createAttede(newAttende);
-      print('pass 56');
+
       FullScreenLoader.stopLoading();
 
       Loaders.successSnackBar(
-          title: 'Success', message: "You account has been created.");
+          title: 'Success', message: "Your class has been created.");
 
-      // Get.to(() => const SignInScreen());
-      // Get.to(() => AttendanceList());
       Get.to(() => const TeacherHomeScreen());
-      print('pass 4');
     } catch (e) {
       Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      print(e.toString());
     } finally {
       FullScreenLoader.stopLoading();
-      print('pass 5');
     }
   }
 
