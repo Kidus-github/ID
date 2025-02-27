@@ -16,7 +16,7 @@ class ClassRepository extends GetxController {
   createClass(ClassModel classModel) async {
     print("create Class method");
     try {
-      await _db.collection("Class").add(classModel.toJson());
+      await _db.collection("Class").doc(classModel.id).set(classModel.toJson());
     } on FirebaseAuthExceptions catch (e) {
       throw FirebaseAuthExceptions(e.code).message;
     } on FirebaseExceptions catch (e) {

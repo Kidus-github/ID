@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:id/src/models/repetetion_rule_model.dart';
 
 class ClassModel extends GetxController {
+  final String id;
   final String className;
   final String teacherId;
   final List<String>? coTeacherId; // Corrected to Map<String, String>
@@ -15,6 +16,7 @@ class ClassModel extends GetxController {
   final DateTime updatedAt;
 
   ClassModel({
+    required this.id,
     required this.className,
     required this.teacherId,
     this.description,
@@ -29,6 +31,7 @@ class ClassModel extends GetxController {
   });
 
   toJson() => {
+        "id": id,
         "ClassName": className,
         "TeacherId": teacherId,
         "CoTeacherId": coTeacherId, // Corrected to Map<String, String>
