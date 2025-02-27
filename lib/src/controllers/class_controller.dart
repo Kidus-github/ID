@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/common_widget/bottom_nav_bar.dart';
@@ -83,8 +84,9 @@ class ClassController extends GetxController {
             message: 'You need to be logged in to create a class.');
         return;
       }
-
+      final String id = FirebaseFirestore.instance.collection('Class').doc().id;
       final newClass = ClassModel(
+        id: id,
         className: className.text.trim(),
         teacherId: user.uid,
         coTeacherId: coTeacherId.text.isNotEmpty
