@@ -6,7 +6,8 @@ import '../../../constants/text_string.dart';
 import '../../../controllers/attende_controller.dart';
 
 class AddAttendeForm extends StatelessWidget {
-  const AddAttendeForm({super.key});
+  const AddAttendeForm({super.key, required this.attendanceClassId});
+  final String attendanceClassId;
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +118,7 @@ class AddAttendeForm extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              controller.addAttende();
+              controller.addAttende(attendanceClassId);
             },
             child: Center(
               child: Container(

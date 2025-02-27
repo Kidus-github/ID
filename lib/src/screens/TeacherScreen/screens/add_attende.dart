@@ -5,8 +5,10 @@ import '../../../common_widget/header.dart';
 import '../widget/attendance_title_section.dart';
 
 class AddAttende extends StatelessWidget {
-  const AddAttende({super.key, required this.aClass});
+  const AddAttende(
+      {super.key, required this.aClass, required this.attendanceClassId});
   final String aClass;
+  final String attendanceClassId;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,7 +22,7 @@ class AddAttende extends StatelessWidget {
               attendanceTitle: "Add Attendee",
               attendanceDate: aClass,
             ),
-            const AddAttendeForm()
+            AddAttendeForm(attendanceClassId: attendanceClassId)
           ]),
         ),
       ),

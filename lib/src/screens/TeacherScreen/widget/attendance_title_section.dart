@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AttendanceTitleSection extends StatelessWidget {
-  const AttendanceTitleSection(
-      {super.key, required this.attendanceTitle, required this.attendanceDate});
+  const AttendanceTitleSection({
+    super.key,
+    required this.attendanceTitle,
+    required this.attendanceDate,
+  });
   final String attendanceTitle;
   final String attendanceDate;
 

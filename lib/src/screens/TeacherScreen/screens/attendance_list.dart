@@ -5,9 +5,14 @@ import 'package:id/src/screens/TeacherScreen/widget/attende_list.dart';
 import 'package:id/src/screens/TeacherScreen/widget/search_section.dart';
 
 class AttendanceList extends StatelessWidget {
-  const AttendanceList({super.key, required this.aTitle, required this.aDate});
+  const AttendanceList(
+      {super.key,
+      required this.aTitle,
+      required this.aDate,
+      required this.aClassId});
   final String aTitle;
   final String aDate;
+  final String aClassId;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,9 @@ class AttendanceList extends StatelessWidget {
             ),
             SearchSection(
               aTitle: aTitle,
+              attendanceClassId: aClassId,
             ),
-            const AttendeList(),
+            AttendeList(classId: aClassId),
           ]),
         ),
         // bottomNavigationBar: const BottomNavBar(),
