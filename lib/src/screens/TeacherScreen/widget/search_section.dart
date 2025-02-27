@@ -3,8 +3,10 @@ import 'package:id/src/constants/text_string.dart';
 import 'package:id/src/screens/TeacherScreen/screens/add_attende.dart';
 
 class SearchSection extends StatelessWidget {
-  const SearchSection({super.key, required this.aTitle});
+  const SearchSection(
+      {super.key, required this.aTitle, required this.attendanceClassId});
   final String aTitle;
+  final String attendanceClassId;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -56,8 +58,8 @@ class SearchSection extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => AddAttende(
-                            aClass: aTitle,
-                          )),
+                          aClass: aTitle,
+                          attendanceClassId: attendanceClassId)),
                 );
               },
               style: ElevatedButton.styleFrom(

@@ -9,9 +9,11 @@ class ClassListWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.date,
+    required this.classId,
   });
   final String title;
   final String date;
+  final String classId;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class ClassListWidget extends StatelessWidget {
               builder: (context) => AttendanceList(
                     aTitle: title,
                     aDate: date,
+                    aClassId: classId,
                   )),
         );
       },

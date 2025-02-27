@@ -35,6 +35,7 @@ class TeacherHomeScreen extends StatelessWidget {
                       final classData = controller.classes[index];
 
                       String title = classData['ClassName'] ?? 'Unknown Class';
+                      String id = classData['id'] ?? '18RJYfHnlbb7sgUzbDDY';
                       Timestamp? startTimestamp = classData['StartDate'];
                       Timestamp? endTimestamp = classData['EndDate'];
 
@@ -43,7 +44,11 @@ class TeacherHomeScreen extends StatelessWidget {
                           ? "${formatter.format(startTimestamp.toDate())} - ${formatter.format(endTimestamp.toDate())}"
                           : "Date not available";
 
-                      return ClassListWidget(title: title, date: formattedDate);
+                      return ClassListWidget(
+                        title: title,
+                        date: formattedDate,
+                        classId: id,
+                      );
                     },
                   );
                 }),
