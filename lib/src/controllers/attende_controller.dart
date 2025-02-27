@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/constants/image_string.dart';
 import 'package:id/src/models/attende_model.dart';
+import 'package:id/src/models/class_student_model.dart';
 import 'package:id/src/repository/user_repository/user_repository.dart';
 import 'package:id/src/screens/TeacherScreen/teacher_home_screen.dart';
 import 'package:id/src/utils/loader/loaders.dart';
@@ -23,7 +24,7 @@ class AttendeController extends GetxController {
   final formKey = GlobalKey<FormState>();
   final useRepo = Get.put(UserRepository());
 
-  Future<void> addAttende() async {
+  Future<void> addAttende(String attendanceClassId) async {
     try {
       FullScreenLoader.openLoadingDialog(
         "Adding attende...",
@@ -50,8 +51,11 @@ class AttendeController extends GetxController {
       //     .createAttede(
       //        );
       print('pass 2');
+      final String id =
+          FirebaseFirestore.instance.collection('Attende').doc().id;
+      final now = DateTime.now();
       final newAttende = AttendeModel(
-        id: FirebaseFirestore.instance.collection('attende').doc().id,
+        id: id,
         firstName: firstName.text.trim(),
         middleName: middleName.text.trim(),
         nickName: nickName.text.trim(),
@@ -59,12 +63,16 @@ class AttendeController extends GetxController {
         section: nickName.text.trim(),
         phoneNo: phoneNo.text.trim(),
         nfcTagId: "",
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
+        createdAt: now,
+        updatedAt: now,
       );
 
-      print(newAttende.id);
+      final newClassStudent = ClassStudentModel(
+          classId: attendanceClassId, studentId: id, enrolledAt: now);
+
+      print(id);
       await AttendeRepository.instance.createAttede(newAttende);
+      await AttendeRepository.instance.createStudent(newClassStudent);
 
       FullScreenLoader.stopLoading();
 
