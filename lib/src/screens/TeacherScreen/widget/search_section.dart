@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/constants/text_string.dart';
+import 'package:id/src/controllers/attendance_controller.dart';
 import 'package:id/src/screens/TeacherScreen/screens/add_attende.dart';
 
 class SearchSection extends StatelessWidget {
   const SearchSection(
-      {super.key, required this.aTitle, required this.attendanceClassId});
+      {super.key,
+      required this.aTitle,
+      required this.attendanceClassId,
+      required this.controller});
   final String aTitle;
   final String attendanceClassId;
+  final AttendanceController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,6 +21,7 @@ class SearchSection extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
+                onChanged: (value) => controller.runFilter(value),
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                     hintText: kSearch,
