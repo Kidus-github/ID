@@ -12,8 +12,10 @@ class SearchSection extends StatelessWidget {
   final String aTitle;
   final String attendanceClassId;
   final AttendanceController controller;
+
   @override
   Widget build(BuildContext context) {
+    TextEditingController search = TextEditingController();
     return Column(
       children: [
         Row(
@@ -21,6 +23,7 @@ class SearchSection extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
+                controller: search,
                 onChanged: (value) => controller.runFilter(value),
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
@@ -48,7 +51,9 @@ class SearchSection extends StatelessWidget {
               ),
             ),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.runFilter(search.text);
+                },
                 icon: const Icon(
                   Icons.search_rounded,
                   size: 32,
