@@ -14,8 +14,12 @@ class AttendeRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   createAttede(AttendeModel attende) async {
+    print("Something");
     try {
+      print("someone");
+
       await _db.collection("Attende").doc(attende.id).set(attende.toJson());
+      print("somewhere");
     } on FirebaseAuthExceptions catch (e) {
       throw FirebaseAuthExceptions(e.code).message;
     } on FirebaseExceptions catch (e) {
@@ -30,6 +34,7 @@ class AttendeRepository extends GetxController {
   }
 
   createStudent(ClassStudentModel student) async {
+    print("createStudnet");
     try {
       await _db
           .collection("ClassAttendance")
@@ -51,7 +56,7 @@ class AttendeRepository extends GetxController {
   Future<List<Map<String, dynamic>>> fetchAttendeesDetails(
       String classid) async {
     List<Map<String, dynamic>> attendeesList = [];
-
+    print("hello");
     try {
       // Step 1: Fetch documents from "ClassAttendance" where classId matches
       final QuerySnapshot classSnapshot = await _db
@@ -68,7 +73,7 @@ class AttendeRepository extends GetxController {
           })
           .whereType<String>() // Remove null values
           .toList();
-
+      print(studentIds);
       if (studentIds.isEmpty) return attendeesList;
 
       // Step 3: Fetch student names from "Attende" collection
@@ -81,8 +86,8 @@ class AttendeRepository extends GetxController {
               studentSnapshot.data() as Map<String, dynamic>?; // Explicit cast
           attendeesList.add({
             "studentId": studentId,
-            "firstName": studentData?["firstName"] ?? "Unknown",
-            "middleName": studentData?["middleName"] ?? "Unknown",
+            "firstName": studentData?["FirstName"] ?? "Unknown",
+            "middleName": studentData?["MiddleName"] ?? "Unknown",
           });
         }
       }

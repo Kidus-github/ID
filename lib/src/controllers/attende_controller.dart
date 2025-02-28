@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/constants/image_string.dart';
+import 'package:id/src/controllers/attendance_controller.dart';
 import 'package:id/src/models/attende_model.dart';
 import 'package:id/src/models/class_student_model.dart';
 import 'package:id/src/repository/user_repository/user_repository.dart';
@@ -69,16 +70,17 @@ class AttendeController extends GetxController {
 
       final newClassStudent = ClassStudentModel(
           classId: attendanceClassId, studentId: id, enrolledAt: now);
-
+      print("56");
       print(id);
       await AttendeRepository.instance.createAttede(newAttende);
+      print("65");
       await AttendeRepository.instance.createStudent(newClassStudent);
-
+      print("57");
       FullScreenLoader.stopLoading();
 
       Loaders.successSnackBar(
           title: 'Success', message: "Your class has been created.");
-
+      AttendanceController.instance.fetchAttendesRecord(attendanceClassId);
       Get.to(() => const TeacherHomeScreen());
     } catch (e) {
       Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());

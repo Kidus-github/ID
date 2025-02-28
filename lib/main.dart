@@ -45,7 +45,7 @@ void main() async {
   Get.put(UserController());
   Get.put(AttendanceController());
   Get.put(AttendeController());
-  // Get.put(AttendeRepository());
+  Get.put(AttendeRepository());
   // await Future.delayed(const Duration(seconds: 3));
 
   // FlutterNativeSplash.remove(); //

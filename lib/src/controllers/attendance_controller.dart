@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:id/src/repository/attendance_repository/attendance_repository.dart';
 
 class AttendanceController extends GetxController {
@@ -30,9 +30,10 @@ class AttendanceController extends GetxController {
     print("Attende records is being fetched");
     try {
       attendeloading.value = true;
-
+      print("Attende records $classId");
       final fetchedClasses =
           await attendanceRepo.fetchAttendeesDetails(classId);
+      print(fetchedClasses);
       // classes(fetchedClasses);
       attendes.assignAll(fetchedClasses);
       attendes.value = fetchedClasses;
@@ -40,6 +41,17 @@ class AttendanceController extends GetxController {
       attendes.value = attendeData;
     } finally {
       attendeloading.value = false;
+    }
+  }
+
+  void runFilter(String searchInput) {
+    List<Map<String, dynamic>> result = attendes;
+    if (searchInput.isNotEmpty) {
+      attendes.value = result
+          .where((attende) => attende["FirstName"]
+              .toLowerCase()
+              .contains(searchInput.toLowerCase()))
+          .toList();
     }
   }
 
