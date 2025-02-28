@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:id/src/common_widget/header.dart';
+import 'package:id/src/controllers/attendance_controller.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attendance_title_section.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attende_list.dart';
 import 'package:id/src/screens/TeacherScreen/widget/search_section.dart';
@@ -16,6 +17,7 @@ class AttendanceList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AttendanceController controller = AttendanceController();
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -28,10 +30,13 @@ class AttendanceList extends StatelessWidget {
               attendanceDate: aDate,
             ),
             SearchSection(
-              aTitle: aTitle,
-              attendanceClassId: aClassId,
+                aTitle: aTitle,
+                attendanceClassId: aClassId,
+                controller: controller),
+            AttendeList(
+              classId: aClassId,
+              controller: controller,
             ),
-            AttendeList(classId: aClassId),
           ]),
         ),
         // bottomNavigationBar: const BottomNavBar(),

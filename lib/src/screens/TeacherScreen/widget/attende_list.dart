@@ -4,13 +4,15 @@ import 'package:id/src/controllers/attendance_controller.dart';
 import 'package:id/src/screens/TeacherScreen/widget/attende.dart';
 
 class AttendeList extends StatelessWidget {
-  const AttendeList({super.key, required this.classId});
+  const AttendeList(
+      {super.key, required this.classId, required this.controller});
   final String classId;
+  final AttendanceController controller;
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(AttendanceController());
-    controller.id = classId;
+    controller.fetchAttendesRecord(classId);
+    print("class id: $classId");
 
     return Expanded(
       //this is to be edited to send the controller or addigional data to be clicked
