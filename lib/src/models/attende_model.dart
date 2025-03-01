@@ -5,6 +5,7 @@ class AttendeModel {
   final String firstName;
   final String middleName;
   final String? nickName;
+  final String gender;
   final String batch;
   final String section;
   final String phoneNo;
@@ -16,6 +17,7 @@ class AttendeModel {
     required this.id,
     required this.firstName,
     required this.middleName,
+    required this.gender,
     required this.batch,
     required this.section,
     required this.phoneNo,
@@ -30,6 +32,7 @@ class AttendeModel {
         "FirstName": firstName,
         "MiddleName": middleName,
         "NickName": nickName,
+        "Gender": gender,
         "Batch": batch,
         "Section": section,
         "NfcTagId": nfcTagId,
@@ -42,6 +45,7 @@ class AttendeModel {
       firstName: '',
       middleName: '',
       nickName: '',
+      gender: '',
       batch: '',
       section: '',
       phoneNo: '',
@@ -62,6 +66,7 @@ class AttendeModel {
         section: data['Section'] ?? '',
         middleName: data['MiddleName'] ?? '',
         nickName: data['NickName'] ?? '',
+        gender: data['Gender'] ?? '',
         nfcTagId: data['NfcTagId'] ?? '',
         phoneNo: data['PhoneNumber'] ?? '',
         updatedAt: (data['UpdateAt'] as Timestamp?)?.toDate() ??
