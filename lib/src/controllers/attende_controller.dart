@@ -21,6 +21,8 @@ class AttendeController extends GetxController {
   final batchName = TextEditingController();
   final section = TextEditingController();
   final phoneNo = TextEditingController();
+  final gender = ['Male', 'Female'];
+  final genderOption = 'Male'.obs;
   final hidepassword = true.obs;
   final formKey = GlobalKey<FormState>();
   final useRepo = Get.put(UserRepository());
@@ -60,6 +62,7 @@ class AttendeController extends GetxController {
         firstName: firstName.text.trim(),
         middleName: middleName.text.trim(),
         nickName: nickName.text.trim(),
+        gender: genderOption.value,
         batch: batchName.text.trim(),
         section: nickName.text.trim(),
         phoneNo: phoneNo.text.trim(),
