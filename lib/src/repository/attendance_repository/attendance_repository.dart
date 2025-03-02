@@ -17,7 +17,6 @@ class AttendeRepository extends GetxController {
     print("Something");
     try {
       print("someone");
-
       await _db.collection("Attende").doc(attende.id).set(attende.toJson());
       print("somewhere");
     } on FirebaseAuthExceptions catch (e) {

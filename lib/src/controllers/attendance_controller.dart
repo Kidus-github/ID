@@ -62,4 +62,10 @@ class AttendanceController extends GetxController {
     {'firstName': 'Edna', 'middleName': 'Mesfin', 'status': false},
     {'firstName': 'Arsema', 'middleName': 'Hailu', 'status': false},
   ];
+
+  ///create attendance every recuring event so check for the event or class start and end date and if today is equal to the event
+  ///and if the repeating date is today create attendance with the lists of students who are enrolled to this specific class
+  ///or event then let the status changes or let the user make changes on the attendance then as the event ends meaning when the
+  ///event end time plus 2hr is reached submit the attendance and upload it to the firebase
+  ///and also save it to the local storage if possible then for the record place show or let users download it in csv format.
 }
