@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:id/src/models/repetetion_rule_model.dart';
 
@@ -43,4 +44,40 @@ class ClassModel extends GetxController {
         "CreatedAt": createdAt,
         "UpdatedAt": updatedAt
       };
+  static ClassModel empty() => ClassModel(
+      id: '',
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+      className: '',
+      teacherId: '',
+      location: '',
+      repetitionRule: null,
+      coTeacherId: null,
+      startDateTime: DateTime.now(),
+      endDateTime: DateTime.now(),
+      oneDayEvent: true);
+
+  factory ClassModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data()!;
+      return ClassModel(
+          id: data['id'],
+          className: data['ClassName'],
+          teacherId: data['TeacherId'],
+          startDateTime:
+              (data['StartDate'] as Timestamp?)?.toDate() ?? DateTime.now(),
+          endDateTime:
+              (data['EndDate'] as Timestamp?)?.toDate() ?? DateTime.now(),
+          oneDayEvent: data['OneDayEvent'],
+          createdAt:
+              (data['CreatedAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+          updatedAt:
+              (data['UpdatedAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+          repetitionRule: data['RepetitionRule'],
+          location: data['Location']);
+    } else {
+      return ClassModel.empty();
+    }
+  }
 }

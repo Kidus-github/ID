@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:id/src/repository/attendance_repository/attendance_repository.dart';
+import 'package:id/src/repository/class_repository/class_repository.dart';
 
 class AttendanceController extends GetxController {
   static AttendanceController get instance => Get.find();
@@ -9,6 +9,7 @@ class AttendanceController extends GetxController {
   final isPresent = false.obs;
   final attendeloading = false.obs;
   final attendanceRepo = Get.put(AttendeRepository());
+  final classRepo = Get.put(ClassRepository());
 
   RxList<Map<String, dynamic>> attendes = <Map<String, dynamic>>[].obs;
   List<Map<String, dynamic>> allAttendees =
@@ -17,7 +18,27 @@ class AttendanceController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchAttendesRecord(id);
+    fetchClassDetail(id);
+  }
+
+  Future<void> fetchClassDetail(String classId) async {
+    try {
+      final fetchedClass = await classRepo.fetchClassDetail(classId);
+      if (fetchedClass.startDateTime.day == DateTime.now().day ||
+          fetchedClass.endDateTime.isAfter(DateTime.now())) {
+        print('This statement runs true');
+        print('This is the id: $classId');
+        fetchAttendesRecord(classId);
+      }
+
+      print(fetchedClass.startDateTime.day == DateTime.now().day ||
+          fetchedClass.endDateTime.day > DateTime.now().day ||
+          fetchedClass.endDateTime.month > DateTime.now().month ||
+          fetchedClass.endDateTime.year > DateTime.now().year);
+      print("class hasnt started yet");
+    } catch (e) {
+      print("Error fetching records: $e");
+    }
   }
 
   Future<void> fetchAttendesRecord(String classId) async {
@@ -68,4 +89,5 @@ class AttendanceController extends GetxController {
   ///or event then let the status changes or let the user make changes on the attendance then as the event ends meaning when the
   ///event end time plus 2hr is reached submit the attendance and upload it to the firebase
   ///and also save it to the local storage if possible then for the record place show or let users download it in csv format.
+  ///
 }
