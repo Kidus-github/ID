@@ -15,15 +15,17 @@ class AddAttende extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(30.0),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Header(),
-            AttendanceTitleSection(
-              attendanceTitle: "Add Attendee",
-              attendanceDate: aClass,
-            ),
-            AddAttendeForm(attendanceClassId: attendanceClassId)
-          ]),
+          child: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Header(),
+              AttendanceTitleSection(
+                attendanceTitle: "Add Attendee",
+                attendanceDate: aClass,
+              ),
+              AddAttendeForm(attendanceClassId: attendanceClassId)
+            ]),
+          ),
         ),
       ),
     );

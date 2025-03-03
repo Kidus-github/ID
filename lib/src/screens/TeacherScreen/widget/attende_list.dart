@@ -11,7 +11,7 @@ class AttendeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    controller.fetchAttendesRecord(classId);
+    controller.fetchClassDetail(classId);
     print("class id: $classId");
 
     return Expanded(
