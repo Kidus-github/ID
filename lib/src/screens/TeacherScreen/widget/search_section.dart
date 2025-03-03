@@ -59,10 +59,20 @@ class SearchSection extends StatelessWidget {
                   size: 32,
                   color: Colors.black,
                 )),
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.filter_alt_outlined,
-                    size: 32, color: Colors.black)),
+            PopupMenuButton<String>(
+              icon: const Icon(Icons.filter_alt_outlined,
+                  size: 32, color: Colors.black),
+              onSelected: (val) {
+                controller.selectedFilter.value = val;
+                controller.filter(val);
+              },
+              itemBuilder: (context) => controller.filtertype
+                  .map((e) => PopupMenuItem<String>(
+                        value: e,
+                        child: Text(e),
+                      ))
+                  .toList(),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(

@@ -11,6 +11,9 @@ class AttendanceController extends GetxController {
   final attendanceRepo = Get.put(AttendeRepository());
   final classRepo = Get.put(ClassRepository());
 
+  final filtertype = ['All', 'Male', 'Female'];
+  final selectedFilter = ''.obs;
+
   RxList<Map<String, dynamic>> attendes = <Map<String, dynamic>>[].obs;
   List<Map<String, dynamic>> allAttendees =
       []; // Store the original list separately
@@ -71,6 +74,33 @@ class AttendanceController extends GetxController {
               .contains(searchInput.toLowerCase());
         }).toList(),
       );
+    }
+  }
+
+  void filter(String selectedFilter) {
+    if (selectedFilter.isEmpty || selectedFilter == "All") {
+      attendes.assignAll(List.from(allAttendees)); // Restore original list
+    } else {
+      attendes.assignAll(
+        allAttendees.where((attende) {
+          switch (selectedFilter) {
+            case 'Male':
+              print('Male list : $attende["gender"].toLowerCase() == "male"');
+              return attende["gender"].toLowerCase() == "male";
+            case 'Female':
+              return attende["gender"].toLowerCase() == "female";
+            // case 'Batch':
+            //   return attende.containsKey("batch"); // Ensures batch exists
+            default:
+              return false; // Prevents null return
+          }
+        }).toList(),
+      );
+
+      // Apply sorting after filtering
+      if (selectedFilter == "A-Z") {
+        attendes.sort((a, b) => a["firstName"].compareTo(b["firstName"]));
+      }
     }
   }
 
