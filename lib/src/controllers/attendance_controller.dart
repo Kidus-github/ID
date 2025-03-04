@@ -85,8 +85,8 @@ class AttendanceController extends GetxController {
         allAttendees.where((attende) {
           switch (selectedFilter) {
             case 'Male':
-              print('Male list : $attende["gender"].toLowerCase() == "male"');
-              return attende["gender"].toLowerCase() == "male";
+              print('Male list : ${attende["gender"].toLowerCase() == "male"}');
+              return attende["gender"]?.toLowerCase() == "male";
             case 'Female':
               return attende["gender"].toLowerCase() == "female";
             // case 'Batch':

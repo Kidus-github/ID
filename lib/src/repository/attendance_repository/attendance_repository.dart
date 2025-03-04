@@ -87,6 +87,7 @@ class AttendeRepository extends GetxController {
             "studentId": studentId,
             "firstName": studentData?["FirstName"] ?? "Unknown",
             "middleName": studentData?["MiddleName"] ?? "Unknown",
+            "gender": studentData?["Gender"] ?? "Unknown",
           });
         }
       }
