@@ -12,6 +12,7 @@ class AttendeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.fetchClassDetail(classId);
+
     print("class id: $classId");
 
     return Expanded(
@@ -32,7 +33,9 @@ class AttendeList extends StatelessWidget {
               return Attende(
                 name:
                     '${controller.attendes[index]['firstName']} ${controller.attendes[index]['middleName']}',
-                // status: attendeData[index]['status']
+                id: controller.attendes[index]['studentId'],
+                isPresent: controller.attendes[index]["isPresent"],
+                classId: classId,
               );
             });
       }),

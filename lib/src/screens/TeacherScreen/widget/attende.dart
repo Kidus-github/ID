@@ -3,12 +3,21 @@ import 'package:get/get.dart';
 import 'package:id/src/controllers/attendance_controller.dart';
 
 class Attende extends StatelessWidget {
-  const Attende({super.key, required this.name});
+  const Attende(
+      {super.key,
+      required this.name,
+      required this.id,
+      required this.isPresent,
+      required this.classId});
   final String name;
+  final String id;
+  final bool isPresent;
+  final String classId;
 
   @override
   Widget build(BuildContext context) {
     final controller = AttendanceController();
+    bool status = false;
     return Container(
       margin: const EdgeInsets.only(bottom: 20.0),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
@@ -35,26 +44,26 @@ class Attende extends StatelessWidget {
           ),
           Transform.scale(
             scale: 2,
-            child: Obx(
-              () => Checkbox(
-                value: controller.isPresent.value,
-                onChanged: (val) {
-                  if (val != null) {
-                    controller.isPresent.value =
-                        val; // ✅ Updates value reactively
-                  }
-                },
+            child: Checkbox(
+              value: status,
+              onChanged: (val) {
+                if (val != null) {
+                  status = val;
+                  controller.updateAttendance(id, val, classId);
 
-                activeColor: Colors.white, // Optional: Change the active color
-                checkColor: Colors.black,
-                fillColor: MaterialStateProperty.resolveWith((states) {
-                  return Colors.white; // Checked color
-                }),
+                  // ✅ Updates value reactively
+                }
+              },
 
-                side: const BorderSide(
-                  color: Colors.black,
-                  width: .60,
-                ),
+              activeColor: Colors.white, // Optional: Change the active color
+              checkColor: Colors.black,
+              fillColor: MaterialStateProperty.resolveWith((states) {
+                return Colors.white; // Checked color
+              }),
+
+              side: const BorderSide(
+                color: Colors.black,
+                width: .60,
               ),
             ),
           ),
