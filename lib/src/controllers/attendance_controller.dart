@@ -5,7 +5,6 @@ import 'package:id/src/repository/class_repository/class_repository.dart';
 class AttendanceController extends GetxController {
   static AttendanceController get instance => Get.find();
 
-  String id = '';
   final isPresent = false.obs;
   final attendeloading = false.obs;
   final attendanceRepo = Get.put(AttendeRepository());
@@ -21,7 +20,6 @@ class AttendanceController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchClassDetail(id);
   }
 
   Future<void> fetchClassDetail(String classId) async {
@@ -29,9 +27,8 @@ class AttendanceController extends GetxController {
       final fetchedClass = await classRepo.fetchClassDetail(classId);
       if (fetchedClass.startDateTime.day == DateTime.now().day ||
           fetchedClass.endDateTime.isAfter(DateTime.now())) {
-        print('This statement runs true');
         print('This is the id: $classId');
-        fetchAttendesRecord(classId);
+        await fetchAttendesRecord(classId);
       }
 
       print(fetchedClass.startDateTime.day == DateTime.now().day ||
@@ -75,6 +72,29 @@ class AttendanceController extends GetxController {
         }).toList(),
       );
     }
+  }
+
+  Future<void> updateAttendance(
+      String studentid, bool value, String classId) async {
+    // Ensure attendes is initialized and loaded
+    await fetchClassDetail(classId);
+    print("check ${attendes.isEmpty}");
+    if (attendes.isEmpty) {
+      print("Attendees list is empty.");
+    }
+    print(attendes);
+    print(allAttendees);
+    print(value);
+
+    // Find the student and update their attendance status
+    for (var attendee in attendes) {
+      if (attendee["studentId"] == studentid) {
+        attendee["isPresent"] = value;
+      }
+    }
+
+    // Print again to check if the changes took effect
+    print(attendes);
   }
 
   void filter(String selectedFilter) {

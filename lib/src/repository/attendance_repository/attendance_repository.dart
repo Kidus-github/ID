@@ -1,17 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:id/src/controllers/attendance_controller.dart';
 import 'package:id/src/exceptions/firebase_auth_exception.dart';
 import 'package:id/src/exceptions/firebase_exceptions.dart';
 import 'package:id/src/exceptions/format_exception.dart';
 import 'package:id/src/exceptions/platform_exceptions.dart';
 import 'package:id/src/models/attende_model.dart';
+import 'package:id/src/models/class_attendance_model.dart';
 import 'package:id/src/models/class_student_model.dart';
+import 'package:id/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:id/src/screens/TeacherScreen/screens/attendance_list.dart';
 
 class AttendeRepository extends GetxController {
   static AttendeRepository get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
+  final AuthenticationRepository auth = Get.find();
 
   createAttede(AttendeModel attende) async {
     print("Something");
@@ -88,6 +93,7 @@ class AttendeRepository extends GetxController {
             "firstName": studentData?["FirstName"] ?? "Unknown",
             "middleName": studentData?["MiddleName"] ?? "Unknown",
             "gender": studentData?["Gender"] ?? "Unknown",
+            "isPresent": false,
           });
         }
       }
@@ -97,6 +103,27 @@ class AttendeRepository extends GetxController {
       throw FirebaseException(plugin: e.plugin, message: e.message);
     } on PlatformException catch (e) {
       throw PlatformException(code: e.code, message: e.message);
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  createAttendance(ClassAttendanceModel attende) async {
+    print("Something");
+    try {
+      print("someone");
+      await _db
+          .collection("Attendance")
+          .doc(attende.attendanceId)
+          .set(attende.toJson());
+    } on FirebaseAuthExceptions catch (e) {
+      throw FirebaseAuthExceptions(e.code).message;
+    } on FirebaseExceptions catch (e) {
+      throw FirebaseExceptions(e.code).message;
+    } on FormatExceptions catch (_) {
+      throw const FormatExceptions();
+    } on PlatformExceptions catch (e) {
+      throw PlatformExceptions(e.code).message;
     } catch (e) {
       throw 'Something went wrong. Please try again';
     }
